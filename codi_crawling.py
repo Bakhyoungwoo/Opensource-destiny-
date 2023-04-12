@@ -28,5 +28,10 @@ for i, item in enumerate(items):
     codi = codi[:-2]
     title_list.append(title)
     codi_list.append(codi)
+
+ # 배열에 저장된 데이터들을 pandas라이브러리를 활용하여 엑셀에 저장
+data = {'title' : title_list,'codi' : codi_list} 
     
-    
+df = pd.DataFrame(data)
+
+df.to_excel("codi_data.xlsx")
