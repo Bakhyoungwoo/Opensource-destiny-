@@ -65,3 +65,19 @@ def btnsave_codi():
 btn3 = Button(root, text="click", command= btnsave_codi)
 btn3.place(x=600,y=100)
 
+photo = PhotoImage(file="gui/img2.png")
+
+label4 = Label(root, image=photo)
+label4.pack()
+
+def change():
+    global photo2
+    photo2 = PhotoImage(file="gui/codi1.png")
+    label4.config(image=photo2)
+    label4.place(x=220,y=60)
+    #폰트 설정
+    label5 = Label(root, font=('맑은 고딕',20,'bold'),text="추천된 코디 입니다.")
+    label5.pack()
+    
+btn = Button(root, text="클릭", command=change)
+btn.pack()
