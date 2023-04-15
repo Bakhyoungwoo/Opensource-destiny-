@@ -71,6 +71,25 @@ label4 = Label(root, image=photo)
 label4.pack()
 
 def change():
+   
+    #라벨 삭제
+    label1.pack_forget()
+    #entry 삭제
+    sex.pack_forget()
+    #버튼 삭제
+    btn1.destroy()
+    
+    label2.pack_forget()
+    situation.pack_forget()
+    btn2.destroy()
+    
+    label3.pack_forget()
+    codi.pack_forget()
+    btn3.destroy()
+    
+    
+    btn.pack_forget()
+    
     global photo2
     photo2 = PhotoImage(file="gui/codi1.png")
     label4.config(image=photo2)
