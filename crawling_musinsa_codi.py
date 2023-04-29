@@ -1,6 +1,7 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import urllib.request
+import pandas as pd
 import requests
 import time
 
@@ -15,6 +16,12 @@ items = soup.find('ul', class_='style-list').find_all('li', class_='style-list-i
 for item in items:
     title = item.find('strong', class_='style-list-information__title').get_text(strip=True) #타이틀 찾아주기
     image_url = item.find('img', class_='style-list-thumbnail__img')['data-original'] #이미지url갖고옴
+    title_list.append(title)#title 배열의 끝에 타이틀 추가
    
 
     urllib.request.urlretrieve(image_url, '{}.png'.format(title)) #url이용해서 이미지를 다운받음(이미지 저장이름은 title)
+
+data = {'title' : title_list}
+df = pd.DataFrame(data)
+df.to_excel("파일명.xlsx")
+
