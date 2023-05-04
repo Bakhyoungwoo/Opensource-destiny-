@@ -1,13 +1,19 @@
-#색깔에 따른 추천 1차
+#색깔에 따른 추천 2차
 import pandas as pd
 from difflib import get_close_matches
 import random
 
-# 엑셀 파일 로드
-df = pd.read_excel('codi_data.xlsx')
+try:
+    # 엑셀 파일 로드
+    df = pd.read_excel('codi_data.xlsx')
+except FileNotFoundError:
+    print("열고자 하는 엑셀 파일이 존재하지 않습니다.")
+    exit()
 
 # 유사한 단어 찾기 함수 정의
 def get_similar_words(word, words_list):
+    # 문자열 타입의 값만 words_list에 추가
+    words_list = [str(w) for w in words_list]
     return get_close_matches(word, words_list, n=1, cutoff=0.8)
 
 while True:
