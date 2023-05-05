@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-#색깔에 따른 추천 1차
-=======
->>>>>>> c7d50a0c1d979b0bd21e9f5a29c05efc41090925
 import pandas as pd
 from difflib import get_close_matches
 import random
 
-<<<<<<< HEAD
 # 엑셀 파일 로드
 df = pd.read_excel('codi_data.xlsx')
 
@@ -20,7 +15,7 @@ while True:
 
     # 입력받은 정보와 유사한 데이터 추출
     filtered_df = df[df['color'].str.contains('|'.join(get_similar_words(current_color, df['color'])))]
-=======
+
 try:
     # 엑셀 파일 로드
     df = pd.read_excel('codi_data.xlsx')
@@ -41,7 +36,7 @@ def get_similar_words(word, words_list):
 while True:
     # 입력받은 정보와 유사한 데이터 추출
     filtered_df = df[df['color'].str.contains('|'.join(get_similar_words(current_color, df['color'])), na=False)]
->>>>>>> c7d50a0c1d979b0bd21e9f5a29c05efc41090925
+
 
     # 필터링된 추천 받을 데이터를 배열에 저장
     recommended_outfits = filtered_df['title'].tolist()
