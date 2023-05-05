@@ -20,7 +20,8 @@ while True:
     filtered_df = filtered_df.reset_index(drop=True)
 
     # 필터링된 추천 받을 데이터를 배열에 저장
-    recommended_outfits = filtered_df['title'].tolist()
+    #codi 열에 입력받은 상황(current_situation)을 포함하는 데이터만 추출, 해당 데이터의 title 열 값을 리스트로 변환하여 추천할 옷을 선택
+    recommended_outfits = filtered_df[filtered_df['codi'].str.contains(current_situation)]['title'].tolist()
 
     # 추천할 옷 랜덤 선택
     # 상황에 알맞은 코디를 하나만 추천하기 위하여 랜덤으로 하나만 선택. 

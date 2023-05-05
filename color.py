@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 #색깔에 따른 추천 1차
+=======
+>>>>>>> c7d50a0c1d979b0bd21e9f5a29c05efc41090925
 import pandas as pd
 from difflib import get_close_matches
 import random
 
+<<<<<<< HEAD
 # 엑셀 파일 로드
 df = pd.read_excel('codi_data.xlsx')
 
@@ -16,6 +20,28 @@ while True:
 
     # 입력받은 정보와 유사한 데이터 추출
     filtered_df = df[df['color'].str.contains('|'.join(get_similar_words(current_color, df['color'])))]
+=======
+try:
+    # 엑셀 파일 로드
+    df = pd.read_excel('codi_data.xlsx')
+except FileNotFoundError:
+    print("열고자 하는 엑셀 파일이 존재하지 않습니다.")
+    exit()
+
+# 사용자로부터 정보 입력 받기
+current_color = input("어떤 색깔의 옷을 추천받고 싶으세요?: ")
+
+# 유사한 단어 찾기 함수 정의
+def get_similar_words(word, words_list):
+    # 문자열 타입의 값만 words_list에 추가
+    words_list = [str(w) for w in words_list]
+    return get_close_matches(word, words_list, n=1, cutoff=0.8)
+
+
+while True:
+    # 입력받은 정보와 유사한 데이터 추출
+    filtered_df = df[df['color'].str.contains('|'.join(get_similar_words(current_color, df['color'])), na=False)]
+>>>>>>> c7d50a0c1d979b0bd21e9f5a29c05efc41090925
 
     # 필터링된 추천 받을 데이터를 배열에 저장
     recommended_outfits = filtered_df['title'].tolist()
