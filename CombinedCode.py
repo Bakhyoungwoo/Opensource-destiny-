@@ -10,9 +10,10 @@ except FileNotFoundError:
     print("열고자 하는 엑셀 파일이 존재하지 않습니다.")
     exit()
 
-# 사용자로부터 상황 및 색깔 입력 받기
+# 사용자로부터 정보 입력 받기
 current_situation = input("어떤 상황에서 입을 옷을 추천받고 싶으세요?: ")
 current_color = input("어떤 색깔의 옷을 추천받고 싶으세요?: ")
+last_outfit = ""
 
 # 유사한 단어 찾기 함수 정의
 def get_similar_words(word, words_list):
@@ -31,9 +32,15 @@ while True:
 
     # 추천할 옷 랜덤 선택
     if recommended_outfits:
-        random_outfit = random.choice(recommended_outfits)
-        print("추천되는 코디:")
-        print(random_outfit)
+        recommended_outfits = [outfit for outfit in recommended_outfits if outfit != last_outfit]  # 이전에 추천된 코디 제외
+        if recommended_outfits:
+            random_outfit = random.choice(recommended_outfits)
+            print("추천되는 코디:")
+            print(random_outfit)
+            last_outfit = random_outfit  # 선택된 코디 저장
+        else:
+            print("일치하는 코디가 없습니다.")
+            break
     else:
         print("일치하는 코디가 없습니다.")
         break
