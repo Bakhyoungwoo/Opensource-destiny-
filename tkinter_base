@@ -1,0 +1,11 @@
+from tkinter import *
+import tkinter.messagebox as msgbox
+import tkinter as tk
+import tkinter.ttk as ttk
+import time
+
+root = Tk()
+root.title("Nado GUI")
+root.geometry("1000x1000")
+
+root.mainloop()
