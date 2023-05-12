@@ -67,6 +67,7 @@ def create_situation_window():
     codi.pack()
     codi.insert(0, "codi")
 
+
     def btnsave_codi():
         # 1 : 첫번째 라인, 0 : 0번째 colum 위치
 
@@ -77,13 +78,14 @@ def create_situation_window():
     btn3 = Button(app, text="click", command= btnsave_codi)
     btn3.place(x=900,y=100)
     
-    
-    
-    photo = PhotoImage(file="pretest_model1/img.png")
-
     label4 = Label(app, text="done")
     label4.pack()
-
+    
+    done = Entry(app, width = 30)
+    done.pack()
+    done.insert(0, "when you choose everything click right button")
+    
+    
     def change():
    
        #라벨 삭제
@@ -100,17 +102,21 @@ def create_situation_window():
         label3.pack_forget()
         codi.pack_forget()
         btn3.destroy()
+        
+        label4.pack_forget()
+        done.pack_forget()
     
     
         btn.pack_forget()
     
         global photo2
         photo2 = PhotoImage(file="pretest_model1/1.png")
-        label4.config(image=photo2)
-        label4.place(x=220,y=60)
-        #폰트 설정
-        label5 = Label(app, font=('맑은 고딕',20,'bold'),text="추천된 코디 입니다.")
+        
+        label5=Label(app, image=photo2)
         label5.pack()
+        #폰트 설정
+        label6 = Label(app, font=('맑은 고딕',20,'bold'),text="추천된 코디 입니다.")
+        label6.pack()
     
     btn = Button(app, text="클릭", command=change)
     btn.pack()
