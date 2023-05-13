@@ -34,11 +34,27 @@ def create_situation_window():
         global current_situation
         current_situation = situation.get()
         print(current_situation)
+    # 버튼 설정
+    btn_situation = Button(app, text="click", command=btnsave_situation)
+    btn_situation.place(x=900,y=20)
+    # 색깔 데이터
+    label_color = Label(app,text="어떤 색의 옷을 추천받고 싶으세요?(상의) : ")
+    label_color.pack()
+    situation_color = Entry(app, width = 20)
+    situation_color.pack()
+    situation_color.insert(0, "ex : blue")
+    # current color 변수에 색깔 값 저장
+    def btnsave_situation_color():
+        #전역변수 설정
+        global current_color
+        current_color = situation_color.get()
+        print(current_color)
     
-    btn1 = Button(app, text="click", command=btnsave_situation)
-    btn1.place(x=900,y=20)
-    current_color = input("어떤 색깔의 옷을 추천받고 싶으세요?: ")
-
+    btn_color = Button(app, text="click", command=btnsave_situation_color)
+    btn_color.place(x=900,y=60)
+    
+        # 엑셀 파일 로드
+    df = pd.read_excel('codi_data.xlsx')
     # 유사한 단어 찾기 함수 정의
     def get_similar_words(word, words_list):
         # 문자열 타입의 값만 words_list에 추가
@@ -47,11 +63,6 @@ def create_situation_window():
 
 # 추천된 코디를 저장하는 리스트
     recommended_outfits = []
-    try:
-    # 엑셀 파일 로드
-        df = pd.read_excel('codi_data.xlsx')
-    except FileNotFoundError:
-        exit()
 
     while True:
         # 입력받은 정보와 유사한 데이터 추출
