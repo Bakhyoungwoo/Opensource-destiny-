@@ -87,7 +87,7 @@ def create_situation_window():
     
     
     def change():
-   
+        btn.destory()
        #라벨 삭제
         label1.pack_forget()
        #entry 삭제
@@ -105,21 +105,18 @@ def create_situation_window():
         
         label4.pack_forget()
         done.pack_forget()
-    
-    
-        btn.pack_forget()
-    
+        
+        
         global photo2
         photo2 = PhotoImage(file="pretest_model1/1.png")
-        
         label5=Label(app, image=photo2)
         label5.pack()
         #폰트 설정
         label6 = Label(app, font=('맑은 고딕',20,'bold'),text="추천된 코디 입니다.")
         label6.pack()
-    
+        
     btn = Button(app, text="클릭", command=change)
-    btn.pack()
+    btn.place(x=900,y=140)
     
     app.mainloop()
     
