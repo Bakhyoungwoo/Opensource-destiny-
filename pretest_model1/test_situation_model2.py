@@ -15,6 +15,14 @@ label_situation = Label(root,font=('맑은 고딕',20,'bold'),text="상황 맞�
 label_situation.place(x=500,y=150)
 photo_situation = PhotoImage()
 
+
+try:
+    # 엑셀 파일 로드
+    df = pd.read_excel('codi_data.xlsx')
+except FileNotFoundError:
+    print("열고자 하는 엑셀 파일이 존재하지 않습니다.")
+    exit()
+
 def create_situation_window():
     app=Tk()
     app.title("test1")
@@ -22,6 +30,22 @@ def create_situation_window():
     
 
     # 사용자로부터 정보 입력 받기
+    label_sex = Label(app,text="성별이 어떻게 되시나요? : ")
+    label_sex.pack()
+    situation_sex = Entry(app, width = 20)
+    situation_sex.pack()
+    situation_sex.insert(0, "ex : man or woman")
+    
+    # current color 변수에 색깔 값 저장
+    def btnsave_situation_sex():
+        #전역변수 설정
+        global current_sex
+        current_sex = situation_sex.get()
+        print(current_sex)
+    
+    btn_sex = Button(app, text="click", command=btnsave_situation_sex)
+    btn_sex.place(x=900,y=20)
+    
     # 상황 데이터
     label_situation = Label(app,text="어떤 상황에서 입을 옷을 추천받고 싶으세요?: ")
     label_situation.pack()
@@ -36,13 +60,14 @@ def create_situation_window():
         print(current_situation)
     # 버튼 설정
     btn_situation = Button(app, text="click", command=btnsave_situation)
-    btn_situation.place(x=900,y=20)
+    btn_situation.place(x=900,y=60)
     # 색깔 데이터
     label_color = Label(app,text="어떤 색의 옷을 추천받고 싶으세요?(상의) : ")
     label_color.pack()
     situation_color = Entry(app, width = 20)
     situation_color.pack()
     situation_color.insert(0, "ex : blue")
+    
     # current color 변수에 색깔 값 저장
     def btnsave_situation_color():
         #전역변수 설정
@@ -51,7 +76,7 @@ def create_situation_window():
         print(current_color)
     
     btn_color = Button(app, text="click", command=btnsave_situation_color)
-    btn_color.place(x=900,y=60)
+    btn_color.place(x=900,y=100)
     
         # 엑셀 파일 로드
     df = pd.read_excel('codi_data.xlsx')
@@ -71,7 +96,7 @@ def create_situation_window():
 
         # 추천할 옷 선택
         if filtered_df.empty:
-            print("일치하는 코디가 없습니다.")
+            label_empty=Label(app,text="일치하는 코디가 없습니다.")
             break
         else:
             # 추천 데이터에서 중복되지 않게 선택하기 위해
