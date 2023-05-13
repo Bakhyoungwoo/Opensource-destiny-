@@ -1,4 +1,4 @@
-#이미 추천된 옷 더이상 수정하지 않도록 수정 보완 성공하였습니다.
+# 추천 분류 기준에 성별을 추가하였습니다.
 import pandas as pd
 from difflib import get_close_matches
 import random
@@ -11,6 +11,8 @@ except FileNotFoundError:
     exit()
 
 # 사용자로부터 정보 입력 받기
+
+which_gender = input("어떤 성별의 옷을 추천받고 싶으세요?(남성/여성 대답): ")
 current_situation = input("어떤 상황에서 입을 옷을 추천받고 싶으세요?: ")
 current_color = input("어떤 색깔의 옷을 추천받고 싶으세요?: ")
 
@@ -25,8 +27,9 @@ recommended_outfits = []
 
 while True:
     # 입력받은 정보와 유사한 데이터 추출
-    filtered_df = df[df['codi'].str.contains('|'.join(get_similar_words(current_situation, df['codi'])), na=False)]
-    filtered_df = filtered_df[df['color'].str.contains('|'.join(get_similar_words(current_color, df['color'])), na=False)]
+    filtered_df = df[df['gender'].str.contains('|'.join(get_similar_words(which_gender, df['gender'])), na=False)]
+    filtered_df = filtered_df[df['codi'].str.contains('|'.join(get_similar_words(current_situation, df['codi'])), na=False)]
+    filtered_df = filtered_df[filtered_df['color'].str.contains('|'.join(get_similar_words(current_color, df['color'])), na=False)]
 
     # 추천할 옷 선택
     if filtered_df.empty:
@@ -61,3 +64,4 @@ while True:
         continue
     else:
         print("예 또는 아니오로 대답해주세요.")
+
