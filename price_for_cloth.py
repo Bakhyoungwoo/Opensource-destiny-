@@ -25,3 +25,15 @@ else:
     average_price = sum(prices) / len(prices)
     min_price = min(prices)
     print(f"{cloth_name}의 가격은 {prices}원이며, 평균 가격은 {average_price:,}원, 가장 싼 가격은 {min_price:,}원 입니다.") #가독성을 위해 가격 출력 시 : ,를 사용하여 천 단위로 쉼표를 출력
+
+     # 평균 가격의 1% 범위 계산: 가격 오차 범위는 price_range 변수에 저장
+    price_range = average_price * 0.01
+    
+     # 추천할 옷의 이름을 저장할 리스트 생성 
+    recommend_clothes = []
+    
+    # 추천할 옷이 있다면 출력
+    if len(recommend_clothes) > 0:
+        print(f"평균 가격의 1% 범위 안에 속하는 가격대의 다른 옷: {recommend_clothes}")
+    else:
+        print("추천할 옷이 없습니다.")
