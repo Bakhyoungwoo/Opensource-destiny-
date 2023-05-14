@@ -14,10 +14,12 @@ prices = []
 
 # 찾은 행에서 가격 정보를 추출하여 리스트에 추가
 for index, row in matching_rows.iterrows():
-    prices.append(row['price'])
+    prices.append((row['price'])) 
 
-# 가격 정보를 출력
+# 가격 정보를 출력 (모든 가격, 평균 가격, 가장 싼 가격 출력)
 if len(prices) == 0:
     print("해당하는 옷 이름이 없습니다.")
 else:
-    print(f"{cloth_name}의 가격은 {prices}원 입니다.")
+    average_price = sum(prices) / len(prices)
+    min_price = min(prices)
+    print(f"{cloth_name}의 가격은 {prices}원이며, 평균 가격은 {average_price}원, 가장 싼 가격은 {min_price}원 입니다.")
