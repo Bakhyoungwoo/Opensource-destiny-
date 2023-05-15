@@ -30,16 +30,15 @@ else:
     price_range = average_price * 0.01
     
      # 추천할 옷의 이름을 저장할 리스트 생성 
-    recommend_clothes = []
-    #df 데이터프레임의 모든 행을 탐색하면서, 각 행의 가격과 price_range를 비교하여 평균 가격에서 price_range 이내에 있는 가격대에 있는 옷들만 recommend_clothes 리스트에 추가
+    recommend_clothes_similar_price = []
     for index, row in df.iterrows():
         price_str = row['price']
         price_num = int(price_str.replace('원', '').replace(',', ''))
-        #row['title'] != cloth_name 조건문은 사용자가 입력한 옷 이름과 같은 옷은 추천 리스트에 포함시키지 않기 위해 사용 됨. (추천 대상에서는 사용자가 입력한 옷과는 다른 옷들만 나오도록!)
         if abs(price_num - average_price) <= price_range and row['title'] != cloth_name:
-            recommend_clothes.append(row['title'])
+            recommend_clothes_similar_price.append(row['title'])
+    
     # 추천할 옷이 있다면 출력
-    if len(recommend_clothes) > 0:
-        print(f"평균 가격의 1% 범위 안에 속하는 가격대의 다른 옷: {recommend_clothes}")
+    if len(recommend_clothes_similar_price) > 0:
+        print(f"평균 가격의 1% 범위 안에 속하는 가격대의 다른 옷: {recommend_clothes_similar_price}")
     else:
-        print("추천할 옷이 없습니다.")
+        print("추천할 비슷한 가격대의 옷이 없습니다.")
