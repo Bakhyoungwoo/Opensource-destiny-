@@ -52,3 +52,9 @@ else:
     for _, row in same_color_clothes.iterrows():
         if row['title'] != cloth_name:
             recommend_clothes_same_color.append(row['title'])
+            
+    # 추천할 옷이 있다면 출력
+    if len(recommend_clothes_same_color) > 0:
+        print(f"입력한 옷과 같은 색의 옷 추천: {recommend_clothes_same_color}")
+    else:
+        print("추천할 같은 색의 옷이 없습니다.")
