@@ -86,38 +86,47 @@ def create_situation_window():
 
 # 추천된 코디를 저장하는 리스트
     recommended_outfits = []
-
-    while True:
-    # 입력받은 정보와 유사한 데이터 추출
-        filtered_df = df[df['gender'].str.contains('|'.join(get_similar_words(current_sex, df['gender'])), na=False)]
-        filtered_df = filtered_df[df['codi'].str.contains('|'.join(get_similar_words(current_situation, df['codi'])), na=False)]
-        filtered_df = filtered_df[filtered_df['color'].str.contains('|'.join(get_similar_words(current_color, df['color'])), na=False)]
-
-    # 추천할 옷 선택
-        if filtered_df.empty:
-          label_empty = Label(app,text="일치하는 코디가 없습니다.")
-          label_empty.pack()
-          break
-        else:
-        # 추천 데이터에서 중복되지 않게 선택하기 위해
-        # 추천된 코디 리스트와 비교하여 중복되지 않는 코디만 추천 리스트에 추가
-            unique_outfits = []
-            
-            for outfit in filtered_df['title'].tolist():
-                if outfit not in recommended_outfits:
-                    unique_outfits.append(outfit)
-
-            # 중복되지 않는 코디가 있다면 추천 리스트에서 랜덤으로 선택하고, 기존 추천 리스트에 추가
-            if unique_outfits:
-                random_outfit = random.choice(unique_outfits)
-                recommended_outfits.append(random_outfit)
-                label_recommend = Label(app, text = "추천되는 코디:")
-                label_recommend.pack()
-                print(random_outfit)
-        # 중복되지 않는 코디가 없다면 모든 코디가 추천 리스트에 이미 추가되었다는 뜻이므로 종료
-            else:
-                print("더 이상 추천할 코디가 없습니다.")
+    
+    def create_recommendpage():
+        app2=Tk()
+        app2.title("test_page")
+        app2.geometry("1300x1000")
+        while True:
+        # 입력받은 정보와 유사한 데이터 추출
+            filtered_df = df[df['gender'].str.contains('|'.join(get_similar_words(current_sex, df['gender'])), na=False)]
+            filtered_df = filtered_df[df['codi'].str.contains('|'.join(get_similar_words(current_situation, df['codi'])), na=False)]
+            filtered_df = filtered_df[filtered_df['color'].str.contains('|'.join(get_similar_words(current_color, df['color'])), na=False)]
+        
+        
+            # 추천할 옷 선택
+            if filtered_df.empty:
+                label_empty = Label(app2,text="일치하는 코디가 없습니다.")
+                label_empty.pack()
                 break
+            else:
+            # 추천 데이터에서 중복되지 않게 선택하기 위해
+            # 추천된 코디 리스트와 비교하여 중복되지 않는 코디만 추천 리스트에 추가
+                unique_outfits = []
+            
+                for outfit in filtered_df['title'].tolist():
+                    if outfit not in recommended_outfits:
+                        unique_outfits.append(outfit)
+
+                # 중복되지 않는 코디가 있다면 추천 리스트에서 랜덤으로 선택하고, 기존 추천 리스트에 추가
+                if unique_outfits:
+                    random_outfit = random.choice(unique_outfits)
+                    recommended_outfits.append(random_outfit)
+                    label_recommend = Label(app2, text = "추천되는 코디:")
+                    label_recommend.pack()
+                    print(random_outfit)
+            # 중복되지 않는 코디가 없다면 모든 코디가 추천 리스트에 이미 추가되었다는 뜻이므로 종료
+                else:
+                    label_done = Label(app2 , text="더 이상 추천할 코디가 없습니다.")
+                    break
+        app2.mainloop()
+        
+    btn_change = Button(app, text="click", command=create_recommendpage)
+    btn_change.place(x=900,y=150)            
 
     
     app.mainloop()
