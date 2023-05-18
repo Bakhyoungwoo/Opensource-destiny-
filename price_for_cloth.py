@@ -48,13 +48,16 @@ else:
         
   
     # 입력한 옷과 같은 색의 옷 추천
-    cloth_color_list = matching_rows['color'].tolist()  # 입력한 옷과 같은 색깔 정보 리스트로 변환
-    same_color_clothes = df.loc[(df['title'] != cloth_name) & (df['color'].isin(cloth_color_list))]  # 색깔이 같은 옷 추출
+    cloth_colors = matching_rows['color'].str.lower().tolist()  # 입력한 옷과 같은 색깔 정보 리스트로 변환
+    if len(cloth_colors) > 0:
+        same_color_clothes = df.loc[(df['title'].str.lower() != cloth_name_lower) & (df['color'].str.lower().isin(cloth_colors))]  # 색깔이 같은 옷 추출
 
-    recommend_clothes_same_color = same_color_clothes['title'].tolist()
+        recommend_clothes_same_color = same_color_clothes['title'].tolist()
 
     # 추천할 옷이 있다면 출력
-    if len(recommend_clothes_same_color) > 0:
-        print(f"입력한 옷과 같은 색의 옷 추천: {recommend_clothes_same_color}")
+        if len(recommend_clothes_same_color) > 0:
+            print(f"입력한 옷과 같은 색의 옷 추천: {recommend_clothes_same_color}")
+        else:
+            print("추천할 같은 색의 옷이 없습니다.")
     else:
-        print("추천할 같은 색의 옷이 없습니다.")
+        print("입력한 옷의 색깔 정보가 없어 같은 색의 옷을 추천할 수 없습니다.")
