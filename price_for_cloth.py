@@ -6,8 +6,11 @@ cloth_name = input("옷 이름을 입력하세요: ")
 # 엑셀 파일을 불러옴
 df = pd.read_excel('example.xlsx')
 
+# 영어 이름의 경우 대소문자 구분 없이 옷 이름을 입력할 수 있도록 입력한 이름을 소문자로 변환
+cloth_name_lower = cloth_name.lower()
+
 # title열에서 옷 이름이 일치하는 행을 찾음
-matching_rows = df.loc[df['title'] == cloth_name]
+mmatching_rows = df.loc[df['title'].str.lower() == cloth_name_lower]
 
 # 가격 정보를 담을 리스트를 생성
 prices = []
@@ -34,7 +37,7 @@ else:
     for index, row in df.iterrows():
         price_str = row['price']
         price_num = int(price_str.replace('원', '').replace(',', ''))
-        if abs(price_num - average_price) <= price_range and row['title'] != cloth_name:
+       if abs(price_num - average_price) <= price_range and row['title'].lower() != cloth_name_lower:
             recommend_clothes_similar_price.append(row['title'])
     
     # 추천할 옷이 있다면 출력
