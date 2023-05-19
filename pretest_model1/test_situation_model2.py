@@ -83,6 +83,7 @@ def create_situation_window():
         # 문자열 타입의 값만 words_list에 추가
         words_list = [str(w) for w in words_list]
         return get_close_matches(word, words_list, n=1, cutoff=0.8)
+    
 
 # 추천된 코디를 저장하는 리스트
     recommended_outfits = []
@@ -133,6 +134,9 @@ def create_situation_window():
         
     btn_change = Button(app, text="click", command=create_recommendpage)
     btn_change.place(x=900,y=150)            
+    photo_example = PhotoImage(file="image/example.png")
+    pLabel = Label(app, image=photo_example)
+    pLabel.pack(expand=1, anchor=CENTER)
 
     
     app.mainloop()
