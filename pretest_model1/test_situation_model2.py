@@ -3,7 +3,7 @@ import tkinter as tk
 import pandas as pd
 from difflib import get_close_matches
 import random
-
+from openpyxl import *
 
 
 root = Tk()
@@ -121,10 +121,13 @@ def create_situation_window():
                     recommended_outfits.append(random_outfit)
                     label_recommend = Label(app2, text = "추천되는 코디:")
                     label_recommend.pack()
+                    label_outfit = Label(app2 , text = random_outfit)
+                    label_outfit.pack()
                     print(random_outfit)
             # 중복되지 않는 코디가 없다면 모든 코디가 추천 리스트에 이미 추가되었다는 뜻이므로 종료
                 else:
                     label_done = Label(app2 , text="더 이상 추천할 코디가 없습니다.")
+                    label_done.pack()
                     break
         app2.mainloop()
         
