@@ -2,6 +2,8 @@ from tkinter import *
 import tkinter as tk
 import pandas as pd
 from difflib import get_close_matches
+from PIL import Image, ImageTk
+import os
 import random
 from openpyxl import *
 
@@ -134,20 +136,21 @@ def create_situation_window():
             situation_answer = Entry(app2, width = 20)
             situation_answer.pack()
             situation_answer.insert(0,"예/아니오")
+            
             def answer():
-        #전역변수 설정
+            #전역변수 설정
                 global answer
                 answer = situation_answer.get()
                 print(answer)
     
             btn_answer = Button(app2, text="click", command=answer)
             btn_answer.place(x=900,y=60)
-            
-            if answer.lower() == '예':
+            #answer의 결과값에 따라 추가 추천
+            if (answer == '예'):
                 label_perfect=Label(app2,text="좋아요! 코디가 마음에 드셨다니 다행입니다!")
                 label_perfect.pack()
                 break
-            elif answer.lower() == '아니오':
+            elif (answer == '아니오'):
                 label_no=Label(app2,text="다른 코디를 추천해드릴게요!")
                 label_no.pack()
                 continue
@@ -156,10 +159,15 @@ def create_situation_window():
         
     btn_change = Button(app, text="click", command=create_recommendpage)
     btn_change.place(x=900,y=150)
-                
-    photo_example = PhotoImage(file="Opensource-desitny-/example.png")
-    pLabel = Label(app, image=photo_example)
-    pLabel.pack(expand=1, anchor=CENTER)
+    #이미지 예시
+    photo_example = ImageTk.PhotoImage(file="pretest_model1/img.png")
+
+    # Resize the image
+    img = Image.open("pretest_model1/img.png")
+    img_resize = img.resize((256, 256))
+    photo_resized = ImageTk.PhotoImage(img_resize)
+    btn_photo = Button(app, image = photo_example)
+    btn_photo.place(x=900,y=210)
 
     
     app.mainloop()
