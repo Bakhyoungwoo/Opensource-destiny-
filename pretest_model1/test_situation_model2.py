@@ -15,7 +15,7 @@ label_situation = Label(root,font=('맑은 고딕',20,'bold'),text="상황 맞�
 label_situation.place(x=500,y=150)
 photo_situation = PhotoImage()
 
-
+global words_list
 try:
     # 엑셀 파일 로드
     df = pd.read_excel('codi_data.xlsx')
@@ -91,6 +91,9 @@ def create_situation_window():
         app2=Tk()
         app2.title("test_page")
         app2.geometry("1300x1000")
+        label_test = Label(app2, text = "Hello")
+        label_test.pack()
+        
         while True:
         # 입력받은 정보와 유사한 데이터 추출
             filtered_df = df[df['gender'].str.contains('|'.join(get_similar_words(current_sex, df['gender'])), na=False)]
