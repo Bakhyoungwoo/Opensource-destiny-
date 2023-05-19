@@ -102,7 +102,34 @@ def create_situation_window():
             filtered_df = filtered_df[filtered_df['color'].str.contains('|'.join(get_similar_words(current_color, df['color'])), na=False)]
             
             global current_answer
-            current_answer = None        
+            current_answer = None
+            #사용자의 답변 받기
+            height = 60   
+ 
+            def btnsave_situation_answer(situation_answer):
+                current_answer = situation_answer.get()
+                print(current_answer) 
+                #대답이 예일 경우(answer = 예)
+                if current_answer == '예':
+                    label_perfect = Label(app2, text="좋아요! 코디가 마음에 드셨다니 다행입니다!")
+                    label_perfect.pack()
+                
+                #대답이 아니오 일 경우(answer = 아니오)
+                elif current_answer == '아니오':
+                    print("Hello")
+                    label_no = Label(app2, text="다른 코디를 추천해드릴게요!")
+                    label_no.pack()
+            label_answer = Label(app2,text = "추천된 코디가 마음에 드나요? ")  
+            label_answer.pack()  
+            #Entry 설정
+                
+            situation_answer = Entry(app2, width = 20)
+            situation_answer.pack()
+            situation_answer.insert(0, "ex : 예/아니오")        
+            btn_sit_answer = Button(app2, text="click", command=btnsave_situation_answer)
+            btn_sit_answer.place(x=900,y=60)
+        
+        
             # 추천할 옷 선택
             if filtered_df.empty:
                 label_empty = Label(app2,text="일치하는 코디가 없습니다.")
@@ -126,40 +153,14 @@ def create_situation_window():
                     label_outfit = Label(app2 , text = random_outfit)
                     label_outfit.pack()
                     print(random_outfit)
-                    filtered_df()
+                    btnsave_situation_answer()
                 # 중복되지 않는 코디가 없다면 모든 코디가 추천 리스트에 이미 추가되었다는 뜻이므로 종료
                 # 현재 추천할 코디가 없을 경우 이 문구가 바로 뜸
                 else:
                     label_done = Label(app2 , text="더 이상 추천할 코디가 없습니다.")
                     label_done.pack()
                     break
-            
-                #사용자의 답변 받기
-                label_answer = Label(app2,text = "추천된 코디가 마음에 드나요? ")  
-                label_answer.pack()  
-                #Entry 설정
-                
-                situation_answer = Entry(app2, width = 20)
-                situation_answer.pack()
-                situation_answer.insert(0, "ex : 예/아니오")
-                height = 60
-                
-            def btnsave_situation_answer(situation_answer):
-                current_answer = situation_answer.get()
-                print(current_answer) 
-                #대답이 예일 경우(answer = 예)
-                if current_answer == '예':
-                    label_perfect = Label(app2, text="좋아요! 코디가 마음에 드셨다니 다행입니다!")
-                    label_perfect.pack()
-                
-                #대답이 아니오 일 경우(answer = 아니오)
-                elif current_answer == '아니오':
-                    print("Hello")
-                    label_no = Label(app2, text="다른 코디를 추천해드릴게요!")
-                    label_no.pack()
-                    unique_outfits()    
-            btn_sit_answer = Button(app2, text="click", command=btnsave_situation_answer)
-            btn_sit_answer.place(x=900,y=60)    
+ 
 
         app2.mainloop()
         
