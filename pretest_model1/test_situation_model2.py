@@ -138,22 +138,21 @@ def create_situation_window():
             situation_answer.insert(0,"예/아니오")
             
             def answer():
-            #전역변수 설정
                 global answer
                 answer = situation_answer.get()
                 print(answer)
-    
+                #대답이 예일 경우(answer = 예)
+                if answer == '예':
+                    label_perfect = Label(app2, text="좋아요! 코디가 마음에 드셨다니 다행입니다!")
+                    label_perfect.pack()
+                #대답이 아니오 일 경우(answer = 아니오)
+                elif answer == '아니오':
+                    label_no = Label(app2, text="다른 코디를 추천해드릴게요!")
+                    label_no.pack()
+        
+
             btn_answer = Button(app2, text="click", command=answer)
-            btn_answer.place(x=900,y=60)
-            #answer의 결과값에 따라 추가 추천
-            if (answer == '예'):
-                label_perfect=Label(app2,text="좋아요! 코디가 마음에 드셨다니 다행입니다!")
-                label_perfect.pack()
-                break
-            elif (answer == '아니오'):
-                label_no=Label(app2,text="다른 코디를 추천해드릴게요!")
-                label_no.pack()
-                continue
+            btn_answer.place(x=900, y=60)
             
         app2.mainloop()
         
