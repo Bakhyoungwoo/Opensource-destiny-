@@ -29,145 +29,69 @@ def create_situation_window():
     app=Tk()
     app.title("test1")
     app.geometry("1300x1000")
-    
 
-    # 사용자로부터 정보 입력 받기
-    label_sex = Label(app,text="성별이 어떻게 되시나요? : ")
-    label_sex.pack()
-    situation_sex = Entry(app, width = 20)
-    situation_sex.pack()
-    situation_sex.insert(0, "ex : 남성 or 여성")
-    
-    # current color 변수에 색깔 값 저장
-    def btnsave_situation_sex():
-        #전역변수 설정
-        global current_sex
-        current_sex = situation_sex.get()
-        print(current_sex)
-    
-    btn_sex = Button(app, text="click", command=btnsave_situation_sex)
-    btn_sex.place(x=900,y=20)
-    
-    # 상황 데이터
-    label_situation = Label(app,text="어떤 상황에서 입을 옷을 추천받고 싶으세요?: ")
-    label_situation.pack()
-    situation = Entry(app, width = 20)
-    situation.pack()
-    situation.insert(0, "ex : 결혼식")
- 
-    def btnsave_situation():
-        #전역변수 설정
-        global current_situation
-        current_situation = situation.get()
-        print(current_situation)
-    # 버튼 설정
-    btn_situation = Button(app, text="click", command=btnsave_situation)
-    btn_situation.place(x=900,y=60)
-    # 색깔 데이터
-    label_color = Label(app,text="어떤 색의 옷을 추천받고 싶으세요?(상의) : ")
-    label_color.pack()
-    situation_color = Entry(app, width = 20)
-    situation_color.pack()
-    situation_color.insert(0, "ex : 파란색")
-    
-    # current color 변수에 색깔 값 저장
-    def btnsave_situation_color():
-        #전역변수 설정
-        global current_color
-        current_color = situation_color.get()
-        print(current_color)
-    
-    btn_color = Button(app, text="click", command=btnsave_situation_color)
-    btn_color.place(x=900,y=100)
-    
-    # 유사한 단어 찾기 함수 정의
-    def get_similar_words(word, words_list):
-        # 문자열 타입의 값만 words_list에 추가
-        words_list = [str(w) for w in words_list]
-        return get_close_matches(word, words_list, n=1, cutoff=0.8)
-    
 
-# 추천된 코디를 저장하는 리스트
-    recommended_outfits = []
+    # 사용자로부터 옷 이름을 입력받음
+    cloth_name = input("옷 이름을 입력하세요: ")
+
+    # 엑셀 파일을 불러옴
+    df = pd.read_excel('example.xlsx')
+
+    # 영어 이름의 경우 대소문자 구분 없이 옷 이름을 입력할 수 있도록 입력한 이름을 소문자로 변환
+    cloth_name_lower = cloth_name.lower()
+
+    # title열에서 옷 이름이 일치하는 행을 찾음
+    matching_rows = df.loc[df['title'].str.lower() == cloth_name_lower]
+
+    # 가격 정보를 담을 리스트를 생성
+    prices = []
+
+    # 찾은 행에서 가격 정보를 추출하여 리스트에 추가
+    for index, row in matching_rows.iterrows():
+        price_str = row['price']
+        price_num = int(price_str.replace('원', '').replace(',', '')) # '원'과 ','을 제거하기 위해 해당 문자열을 빈 문자열로 대체
+        prices.append(price_num)
+
+    # 가격 정보를 출력: 모든 가격, 평균 가격, 가장 싼 가격 출력
+    if len(prices) == 0:
+        print("해당하는 옷 이름이 없습니다.")
+    else:
+        average_price = sum(prices) / len(prices)
+        min_price = min(prices)
+        print(f"{cloth_name}의 가격은 {prices}원이며, 평균 가격은 {average_price:,}원, 가장 싼 가격은 {min_price:,}원 입니다.") #가독성을 위해 가격 출력 시 : ,를 사용하여 천 단위로 쉼표를 출력
+
+        # 평균 가격의 1% 범위 계산: 가격 오차 범위는 price_range 변수에 저장
+        price_range = average_price * 0.01
     
-    def create_recommendpage():
-        app2=Tk()
-        app2.title("test_page")
-        app2.geometry("1300x1000")
+        # 추천할 옷의 이름을 저장할 리스트 생성 
+        recommend_clothes_similar_price = []
+        for index, row in df.iterrows():
+            price_str = row['price']
+            price_num = int(price_str.replace('원', '').replace(',', ''))
+        if abs(price_num - average_price) <= price_range and row['title'].lower() != cloth_name_lower:
+            recommend_clothes_similar_price.append(row['title'])
+    
+    # 추천할 옷이 있다면 출력
+        if len(recommend_clothes_similar_price) > 0:
+           print(f"평균 가격의 1% 범위 안에 속하는 가격대의 다른 옷: {recommend_clothes_similar_price}")
+        else:
+          print("추천할 비슷한 가격대의 옷이 없습니다.")
         
-        while True:
-        # 입력받은 정보와 유사한 데이터 추출
-            filtered_df = df[df['gender'].str.contains('|'.join(get_similar_words(current_sex, df['gender'])), na=False)]
-            filtered_df = filtered_df[df['codi'].str.contains('|'.join(get_similar_words(current_situation, df['codi'])), na=False)]
-            filtered_df = filtered_df[filtered_df['color'].str.contains('|'.join(get_similar_words(current_color, df['color'])), na=False)]
-        
-        
-            # 추천할 옷 선택
-            if filtered_df.empty:
-                label_empty = Label(app2,text="일치하는 코디가 없습니다.")
-                label_empty.pack()
-                break
+  
+    # 입력한 옷과 같은 색의 옷 추천
+        cloth_colors = matching_rows['color'].str.lower().tolist()  # 입력한 옷과 같은 색깔 정보 리스트로 변환
+        if len(cloth_colors) > 0:
+            same_color_clothes = df.loc[(df['title'].str.lower() != cloth_name_lower) & (df['color'].str.lower().isin(cloth_colors))]  # 색깔이 같은 옷 추출
+
+            recommend_clothes_same_color = same_color_clothes['title'].tolist()
+
+        # 추천할 옷이 있다면 출력
+            if len(recommend_clothes_same_color) > 0:
+                print(f"입력한 옷과 같은 색의 옷 추천: {recommend_clothes_same_color}")
             else:
-            # 추천 데이터에서 중복되지 않게 선택하기 위해
-            # 추천된 코디 리스트와 비교하여 중복되지 않는 코디만 추천 리스트에 추가
-                unique_outfits = []
-            
-                for outfit in filtered_df['title'].tolist():
-                    if outfit not in recommended_outfits:
-                        unique_outfits.append(outfit)
-
-                # 중복되지 않는 코디가 있다면 추천 리스트에서 랜덤으로 선택하고, 기존 추천 리스트에 추가
-                if unique_outfits:
-                    random_outfit = random.choice(unique_outfits)
-                    recommended_outfits.append(random_outfit)
-                    label_recommend = Label(app2, text = "추천되는 코디:")
-                    label_recommend.pack()
-                    label_outfit = Label(app2 , text = random_outfit)
-                    label_outfit.pack()
-                    print(random_outfit)
-            # 중복되지 않는 코디가 없다면 모든 코디가 추천 리스트에 이미 추가되었다는 뜻이므로 종료
-                else:
-                    label_done = Label(app2 , text="더 이상 추천할 코디가 없습니다.")
-                    label_done.pack()
-                    break
-            #사용자의 답변 받기
-            label_answer = Label(app2,text = "추천된 코디가 마음에 드나요? ")  
-            label_answer.pack()  
-            situation_answer = Entry(app2, width = 20)
-            situation_answer.pack()
-            situation_answer.insert(0,"예/아니오")
-            
-            def answer():
-            #전역변수 설정
-                global answer
-                answer = situation_answer.get()
-                print(answer)
-    
-            btn_answer = Button(app2, text="click", command=answer)
-            btn_answer.place(x=900,y=60)
-            #answer의 결과값에 따라 추가 추천
-            if answer.lower() == '예':
-                label_perfect=Label(app2,text="좋아요! 코디가 마음에 드셨다니 다행입니다!")
-                label_perfect.pack()
-                break
-            elif answer.lower() == '아니오':
-                label_no=Label(app2,text="다른 코디를 추천해드릴게요!")
-                label_no.pack()
-                continue
-            
-        app2.mainloop()
-        
-    btn_change = Button(app, text="click", command=create_recommendpage)
-    btn_change.place(x=900,y=150)
-    #이미지 예시
-    photo_example = ImageTk.PhotoImage(file="pretest_model1/img.png")
-
-    # Resize the image
-    img = Image.open("pretest_model1/img.png")
-    img_resize = img.resize((256, 256))
-    photo_resized = ImageTk.PhotoImage(img_resize)
-    btn_photo = Button(app, image = photo_example)
-    btn_photo.place(x=900,y=210)
+                print("추천할 같은 색의 옷이 없습니다.")
+        else:
+            print("입력한 옷의 색깔 정보가 없어 같은 색의 옷을 추천할 수 없습니다.")
 
     
     app.mainloop()
