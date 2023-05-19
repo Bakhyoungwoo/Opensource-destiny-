@@ -93,15 +93,16 @@ def create_situation_window():
     def create_recommendpage():
         app2=Tk()
         app2.title("test_page")
-        app2.geometry("1300x1000")
+        app2.geometry("1300x1000")  
         
         while True:
         # 입력받은 정보와 유사한 데이터 추출
             filtered_df = df[df['gender'].str.contains('|'.join(get_similar_words(current_sex, df['gender'])), na=False)]
             filtered_df = filtered_df[df['codi'].str.contains('|'.join(get_similar_words(current_situation, df['codi'])), na=False)]
             filtered_df = filtered_df[filtered_df['color'].str.contains('|'.join(get_similar_words(current_color, df['color'])), na=False)]
-        
-        
+            
+            global current_answer
+            current_answer = None        
             # 추천할 옷 선택
             if filtered_df.empty:
                 label_empty = Label(app2,text="일치하는 코디가 없습니다.")
@@ -125,6 +126,7 @@ def create_situation_window():
                     label_outfit = Label(app2 , text = random_outfit)
                     label_outfit.pack()
                     print(random_outfit)
+                    filtered_df()
                 # 중복되지 않는 코디가 없다면 모든 코디가 추천 리스트에 이미 추가되었다는 뜻이므로 종료
                 # 현재 추천할 코디가 없을 경우 이 문구가 바로 뜸
                 else:
@@ -136,34 +138,29 @@ def create_situation_window():
                 label_answer = Label(app2,text = "추천된 코디가 마음에 드나요? ")  
                 label_answer.pack()  
                 #Entry 설정
+                
                 situation_answer = Entry(app2, width = 20)
                 situation_answer.pack()
-                situation_answer.insert(0, "ex : 파란색")
+                situation_answer.insert(0, "ex : 예/아니오")
                 height = 60
-            
-                def btnsave_situation_answer():
-                    global current_answer
-                    current_answer = situation_answer.get()
-                    print(current_answer)
-    
-                btn_sit_answer = Button(app2, text="click", command=btnsave_situation_answer)
-                btn_sit_answer.place(x=900,y=100)
-            
-                def answer():    
-                    #대답이 예일 경우(answer = 예)
-                    if answer == '예':
-                        label_perfect = Label(app2, text="좋아요! 코디가 마음에 드셨다니 다행입니다!")
-                        label_perfect.pack()
-                    #대답이 아니오 일 경우(answer = 아니오)
-                    elif answer == '아니오':
-                        print("Hello")
-                        label_no = Label(app2, text="다른 코디를 추천해드릴게요!")
-                        label_no.pack()
-                    
-                #answer함수 실행시키는 버튼
-                btn_answer = Button(app2, text="click", command=answer)
-                btn_answer.place(x=900, y=60)
-            
+                
+            def btnsave_situation_answer(situation_answer):
+                current_answer = situation_answer.get()
+                print(current_answer) 
+                #대답이 예일 경우(answer = 예)
+                if current_answer == '예':
+                    label_perfect = Label(app2, text="좋아요! 코디가 마음에 드셨다니 다행입니다!")
+                    label_perfect.pack()
+                
+                #대답이 아니오 일 경우(answer = 아니오)
+                elif current_answer == '아니오':
+                    print("Hello")
+                    label_no = Label(app2, text="다른 코디를 추천해드릴게요!")
+                    label_no.pack()
+                    unique_outfits()    
+            btn_sit_answer = Button(app2, text="click", command=btnsave_situation_answer)
+            btn_sit_answer.place(x=900,y=60)    
+
         app2.mainloop()
         
     btn_change = Button(app, text="click", command=create_recommendpage)
