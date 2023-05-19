@@ -12,30 +12,29 @@ root = Tk()
 root.title("의류 추천 프로그램")
 root.geometry("1300x1000")
 
-
-label_situation = Label(root,font=('맑은 고딕',20,'bold'),text="상황 맞춤 코디")
-label_situation.place(x=500,y=150)
-photo_situation = PhotoImage()
-
 global words_list
-try:
-    # 엑셀 파일 로드
-    df = pd.read_excel('codi_data.xlsx')
-except FileNotFoundError:
-    print("열고자 하는 엑셀 파일이 존재하지 않습니다.")
-    exit()
 
-def create_situation_window():
+def create_price_window():
     app=Tk()
     app.title("test1")
     app.geometry("1300x1000")
 
-
     # 사용자로부터 옷 이름을 입력받음
-    cloth_name = input("옷 이름을 입력하세요: ")
+    label_cloth_name = Label(app,text="옷 이름을 입력하세요: ")
+    label_cloth_name.pack()
+    price_name = Entry(app,width = 20)
+    price_name.pack()
+    price_name.insert(0,"ex : 무신사 스탠다드")
+    
+    def btnsave_price_name():
+        #전역변수 설정
+        global cloth_name
+        cloth_name = price_name.get()
+        print(cloth_name)
+    
+    btn_price_name = Button(app, text="click", command=btnsave_price_name)
+    btn_price_name.place(x=900,y=20)
 
-    # 엑셀 파일을 불러옴
-    df = pd.read_excel('example.xlsx')
 
     # 영어 이름의 경우 대소문자 구분 없이 옷 이름을 입력할 수 있도록 입력한 이름을 소문자로 변환
     cloth_name_lower = cloth_name.lower()
@@ -98,7 +97,7 @@ def create_situation_window():
     
 
 
-make_btn_situation =Button(root,text="클릭",command = create_situation_window)
+make_btn_situation =Button(root,text="클릭",command = create_price_window)
 make_btn_situation.place(x=570,y=200)
 
 
