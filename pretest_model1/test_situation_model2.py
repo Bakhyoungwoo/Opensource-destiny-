@@ -130,14 +130,17 @@ def create_situation_window():
                     break
             label_answer = Label(app2,text = "추천된 코디가 마음에 드나요? (예/아니오): ")  
             label_answer.pack()  
+            situation_answer = Entry(app2, width = 20)
+            situation_answer.pack()
+            situation_answer.insert(0)
             def answer():
         #전역변수 설정
                 global answer
                 answer = answer.get()
-                print(current_color)
+                print(answer)
     
-            btn_answer = Button(app2, text="click", command=answer)
-            btn_answer.place(x=900,y=100)
+        btn_answer = Button(app2, text="click", command=answer)
+        btn_answer.place(x=900,y=100)
             
         app2.mainloop()
         
