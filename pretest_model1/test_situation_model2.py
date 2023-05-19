@@ -125,7 +125,8 @@ def create_situation_window():
                     label_outfit = Label(app2 , text = random_outfit)
                     label_outfit.pack()
                     print(random_outfit)
-            # 중복되지 않는 코디가 없다면 모든 코디가 추천 리스트에 이미 추가되었다는 뜻이므로 종료
+                # 중복되지 않는 코디가 없다면 모든 코디가 추천 리스트에 이미 추가되었다는 뜻이므로 종료
+                # 현재 추천할 코디가 없을 경우 이 문구가 바로 뜸
                 else:
                     label_done = Label(app2 , text="더 이상 추천할 코디가 없습니다.")
                     label_done.pack()
@@ -137,7 +138,13 @@ def create_situation_window():
             situation_answer.pack()
             situation_answer.insert(0,"예/아니오")
             
+            height = 60
             def answer():
+                label_answer = Label(app2,text = "추천된 코디가 마음에 드나요? ")  
+                label_answer.pack()  
+                situation_answer = Entry(app2, width = 20)
+                situation_answer.pack()
+                situation_answer.insert(0,"예/아니오")
                 global answer
                 answer = situation_answer.get()
                 print(answer)
@@ -149,8 +156,18 @@ def create_situation_window():
                 elif answer == '아니오':
                     label_no = Label(app2, text="다른 코디를 추천해드릴게요!")
                     label_no.pack()
-        
+                create_button()
 
+                def create_button():
+                    global height
+                    height += 60
+                    btn_answer.place(x=900, y=height)
+                    btn_answer = Button(app2, text="click", command=answer)
+                    
+
+                # Call create_button() initially to create the first button
+                create_button()
+                
             btn_answer = Button(app2, text="click", command=answer)
             btn_answer.place(x=900, y=60)
             
