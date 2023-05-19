@@ -92,8 +92,6 @@ def create_situation_window():
         app2=Tk()
         app2.title("test_page")
         app2.geometry("1300x1000")
-        label_test = Label(app2, text = "Hello")
-        label_test.pack()
         
         while True:
         # 입력받은 정보와 유사한 데이터 추출
@@ -130,11 +128,23 @@ def create_situation_window():
                     label_done = Label(app2 , text="더 이상 추천할 코디가 없습니다.")
                     label_done.pack()
                     break
+            label_answer = Label(app2,text = "추천된 코디가 마음에 드나요? (예/아니오): ")  
+            label_answer.pack()  
+            def answer():
+        #전역변수 설정
+                global answer
+                answer = answer.get()
+                print(current_color)
+    
+            btn_answer = Button(app2, text="click", command=answer)
+            btn_answer.place(x=900,y=100)
+            
         app2.mainloop()
         
     btn_change = Button(app, text="click", command=create_recommendpage)
-    btn_change.place(x=900,y=150)            
-    photo_example = PhotoImage(file="image/example.png")
+    btn_change.place(x=900,y=150)
+                
+    photo_example = PhotoImage(file="Opensource-desitny-/example.png")
     pLabel = Label(app, image=photo_example)
     pLabel.pack(expand=1, anchor=CENTER)
 
