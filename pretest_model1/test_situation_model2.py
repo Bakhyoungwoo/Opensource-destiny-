@@ -128,19 +128,29 @@ def create_situation_window():
                     label_done = Label(app2 , text="더 이상 추천할 코디가 없습니다.")
                     label_done.pack()
                     break
-            label_answer = Label(app2,text = "추천된 코디가 마음에 드나요? (예/아니오): ")  
+            #사용자의 답변 받기
+            label_answer = Label(app2,text = "추천된 코디가 마음에 드나요? ")  
             label_answer.pack()  
             situation_answer = Entry(app2, width = 20)
             situation_answer.pack()
-            situation_answer.insert(0)
+            situation_answer.insert(0,"예/아니오")
             def answer():
         #전역변수 설정
                 global answer
-                answer = answer.get()
+                answer = situation_answer.get()
                 print(answer)
     
-        btn_answer = Button(app2, text="click", command=answer)
-        btn_answer.place(x=900,y=100)
+            btn_answer = Button(app2, text="click", command=answer)
+            btn_answer.place(x=900,y=60)
+            
+            if answer.lower() == '예':
+                label_perfect=Label(app2,text="좋아요! 코디가 마음에 드셨다니 다행입니다!")
+                label_perfect.pack()
+                break
+            elif answer.lower() == '아니오':
+                label_no=Label(app2,text="다른 코디를 추천해드릴게요!")
+                label_no.pack()
+                continue
             
         app2.mainloop()
         
