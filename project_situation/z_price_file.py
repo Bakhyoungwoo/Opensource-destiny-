@@ -55,20 +55,30 @@ class Price_ThirdWindow(QMainWindow, form_class5):
         # title열에서 옷 이름이 일치하는 행을 찾음
         self.matching_rows = df.loc[df['title'].str.lower() == cloth_name_lower]
 
-        prices = []
 
-        for index, row in matching_rows.iterrows():
-            price_str = row['price']
-            price_num = int(price_str.replace('원', '').replace(',', ''))  # '원'과 ','을 제거하기 위해 해당 문자열을 빈 문자열로 대체
-            prices.append(price_num)
+
     def connect_signal_slots(self):
         self.pushButton.clicked.connect(self.btn_show_price)
+
     def btn_show_price(self):
-        self.label_3.setText('가격들 : ')
+        self.prices = []  # Initialize the instance variable self.prices as an empty list
 
+        for index, row in self.matching_rows.iterrows():
+            price_str = row['price']
+            price_num = int(price_str.replace('원', '').replace(',', ''))
+            self.prices.append(price_num)  # Append the extracted price to self.prices
 
-
-
+        if len(self.prices) == 0:
+            self.label_5.setText("해당하는 옷 이름이 없습니다.")
+        #유니섹스 세미 와이드 밴딩 슬랙스
+        else:
+            self.average_price = sum(self.prices) / len(self.prices)
+            self.min_price = min(self.prices)
+            self.label_3.setText('가격들 : ')
+            self.text += '\n'.join(['{}원'.format(price) for price in self.prices])
+            self.label_6.setText(self.text)
+            self.label_4.setText('평균가격과 제일 싼 가격')
+            self.label_7.setText('평균가격은 : {0} \n 제일 싼 가격은 : {1}'.format(self.average_price,self.min_price))
 
 
 if __name__ == '__main__':
