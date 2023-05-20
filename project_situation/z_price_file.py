@@ -79,6 +79,20 @@ class Price_ThirdWindow(QMainWindow, form_class5):
             self.label_6.setText(self.text)
             self.label_4.setText('평균가격과 제일 싼 가격')
             self.label_7.setText('평균가격은 : {0} \n 제일 싼 가격은 : {1}'.format(self.average_price,self.min_price))
+            cloth_colors = matching_rows['color'].str.lower().tolist()  # 입력한 옷과 같은 색깔 정보 리스트로 변환
+            if len(cloth_colors) > 0:
+                same_color_clothes = self.df.loc[(self.df['title'].str.lower() != cloth_name_lower) & (
+                    self.df['color'].str.lower().isin(cloth_colors))]  # 색깔이 같은 옷 추출
+
+                recommend_clothes_same_color = same_color_clothes['title'].tolist()
+
+                if len(recommend_clothes_same_color) > 0:
+                    recommend_clothes_text = '\n'.join(recommend_clothes_same_color)
+                    self.label_8.setText(f"입력한 옷과 같은 색의 옷 추천:\n\n{recommend_clothes_text}")
+                else:
+                    self.label_8.setText("추천할 같은 색의 옷이 없습니다.")
+            else:
+                self.label_8.setText("입력한 옷의 색깔 정보가 없어 같은 색의 옷을 추천할 수 없습니다.")
 
 
 if __name__ == '__main__':
