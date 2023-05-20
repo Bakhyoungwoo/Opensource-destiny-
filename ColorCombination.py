@@ -30,3 +30,13 @@ if shirt_title_exists:
     logger.info(f"입력한 상의 '{shirt_name}'은(는) shirts 엑셀 파일의 title 열에 존재합니다.")
 else:
     logger.info(f"입력한 상의 '{shirt_name}'은(는) shirts 엑셀 파일의 title 열에 존재하지 않습니다.")
+    
+# 사용자로부터 하의 이름 입력 받기
+pants_name = input("하의 이름을 입력하세요: ")
+
+# pants 엑셀 파일에서 하의 이름 찾기
+pants_title_exists = pants_name in pants_data['title'].values
+if pants_title_exists:
+    logger.info(f"입력한 하의 '{pants_name}'은(는) pants 엑셀 파일의 title 열에 존재합니다.")
+else:
+    logger.info(f"입력한 하의 '{pants_name}'은(는) pants 엑셀 파일의 title 열에 존재하지 않습니다.")
