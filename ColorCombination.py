@@ -34,9 +34,17 @@ else:
 
 #색상 조합 정보를 담은 딕셔너리 생성
 color_combinations = {
+    '빨강': ['파랑', '흰색'],
+    '파랑': ['빨강', '흰색'],
+    '흰색': ['빨강', '파랑', '검정'],
+    '검정': ['흰색', '회색']
 }
 
-if shirt_color in color_combinations and pants_color in color_combinations[shirt_color]:
-     print(f"상의와 하의의 색상 조합이 잘 어울립니다! ({shirt_color}, {pants_color})")
+# 사용자가 고른 옷의 색상 조합 평가 기능 추가
+if shirt_color == pants_color:
+    print("상의와 하의의 색상이 일치합니다. 평범하지만 괜찮은 조합입니다!")
 else:
-     print(f"상의와 하의의 색상 조합이 잘 어울리지 않습니다. 다른 조합을 고려해 보세요!")
+    if shirt_color in color_combinations and pants_color in color_combinations[shirt_color]:
+        print(f"상의와 하의의 색상 조합이 잘 어울립니다! ({shirt_color}, {pants_color})")
+    else:
+        print(f"상의와 하의의 색상 조합이 잘 어울리지 않습니다. 다른 조합을 고려해 보세요!")
