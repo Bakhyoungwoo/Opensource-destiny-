@@ -80,12 +80,17 @@ worst_color_combinations = {
     '검정': []
 }
 
-
 # 사용자가 고른 옷의 색상 조합 평가 기능 추가
 if shirt_color == pants_color:
-    print("상의와 하의의 색상이 일치합니다. 평범하지만 괜찮은 조합입니다!")
+    print("상의와 하의의 색상이 일치합니다. 평범하지만 괜찮은, 무난한 조합입니다!")
 else:
-    if shirt_color in color_combinations and pants_color in color_combinations[shirt_color]:
+    if shirt_color in best_color_combinations and pants_color in best_color_combinations[shirt_color]:
         print(f"상의와 하의의 색상 조합이 잘 어울립니다! ({shirt_color}, {pants_color})")
+    elif shirt_color in good_color_combinations and pants_color in good_color_combinations[shirt_color]:
+        print(f"상의와 하의의 색상 조합이 어느 정도 어울립니다! ({shirt_color}, {pants_color})")
+    elif shirt_color in not_bad_color_combinations and pants_color in not_bad_color_combinations[shirt_color]:
+        print(f"상의와 하의의 색상 조합이 나쁘진 않지만, 더 좋은 조합을 찾아보는 것은 어떨까요? ({shirt_color}, {pants_color})")
+    elif shirt_color in worst_color_combinations and pants_color in worst_color_combinations[shirt_color]:
+        print(f" 어우! 이건 좀 아닌 것 같습니다! 새로운 시도를 해보는 게 아니라면, 다른 색깔의 조합을 고려해 보세요. ({shirt_color}, {pants_color})")
     else:
-        print(f"상의와 하의의 색상 조합이 잘 어울리지 않습니다. 다른 조합을 고려해 보세요!")
+        print(f"저희 색 조합 데이터에는 없는 조합입니다. 흐음... 당신의 조합이 괜찮기를 바랍니다!")
