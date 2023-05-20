@@ -1,5 +1,6 @@
 from tkinter import *
 import tkinter as tk
+from tkinter import Label,Entry,Button
 import pandas as pd
 from difflib import get_close_matches
 from PIL import Image, ImageTk
@@ -15,29 +16,35 @@ root.geometry("1300x1000")
 global words_list
 
 def create_price_window():
-    app=Tk()
-    app.title("test1")
-    app.geometry("1300x1000")
-
+    price_page=Tk()
+    price_page.title("test1")
+    price_page.geometry("1300x1000")
+    df = pd.read_excel('example.xlsx')
+    
     # 사용자로부터 옷 이름을 입력받음
-    label_cloth_name = Label(app,text="옷 이름을 입력하세요: ")
-    label_cloth_name.pack()
-    price_name = Entry(app,width = 20)
-    price_name.pack()
+    label_cloth_name = Label(price_page,text="옷 이름을 입력하세요: ")
+    label_cloth_name.place(x=100,y = 20)
+    price_name = Entry(price_page,width = 20)
+    price_name.place(x=100,y = 40)
     price_name.insert(0,"ex : 무신사 스탠다드")
     
+    name_lower = None
+    name = None
     def btnsave_price_name():
         #전역변수 설정
-        global cloth_name
-        cloth_name = price_name.get()
-        print(cloth_name)
+        global name_lower
+        global name
+        name = price_name.get()  # Get the cloth name from the Entry widget and convert to lowercase
+        # 영어 이름의 경우 대소문자 구분 없이 옷 이름을 입력할 수 있도록 입력한 이름을 소문자로 변환
+        name_lower = name.lower()
+        return name_lower, name
+    #현재 btnsave_price_name에서만 값이 저장되는 사태발생
+    btn_price_name = Button(price_page, text="click", command=btnsave_price_name)
+    btn_price_name.place(x=400,y=40)
     
-    btn_price_name = Button(app, text="click", command=btnsave_price_name)
-    btn_price_name.place(x=900,y=20)
-
-
-    # 영어 이름의 경우 대소문자 구분 없이 옷 이름을 입력할 수 있도록 입력한 이름을 소문자로 변환
-    cloth_name_lower = cloth_name.lower()
+    cloth_name_lower,cloth_name = btnsave_price_name()
+    print(cloth_name_lower,cloth_name)
+    
 
     # title열에서 옷 이름이 일치하는 행을 찾음
     matching_rows = df.loc[df['title'].str.lower() == cloth_name_lower]
@@ -53,7 +60,7 @@ def create_price_window():
 
     # 가격 정보를 출력: 모든 가격, 평균 가격, 가장 싼 가격 출력
     if len(prices) == 0:
-        print("해당하는 옷 이름이 없습니다.")
+        Label(price_page,text="해당하는 옷 이름이 없습니다.")
     else:
         average_price = sum(prices) / len(prices)
         min_price = min(prices)
@@ -93,7 +100,7 @@ def create_price_window():
             print("입력한 옷의 색깔 정보가 없어 같은 색의 옷을 추천할 수 없습니다.")
 
     
-    app.mainloop()
+    price_page.mainloop()
     
 
 
