@@ -20,3 +20,13 @@ try:
     logger.info(f"파일 '{pants_file}'을 성공적으로 불러왔습니다.")
 except Exception as e:
     logger.error(f"파일 '{pants_file}'을 불러오는데 실패했습니다: {str(e)}")
+
+# 사용자로부터 상의 이름 입력 받기
+shirt_name = input("상의 이름을 입력하세요: ")
+
+# shirts 엑셀 파일에서 상의 이름 찾기
+shirt_title_exists = shirt_name in shirts_data['title'].values
+if shirt_title_exists:
+    logger.info(f"입력한 상의 '{shirt_name}'은(는) shirts 엑셀 파일의 title 열에 존재합니다.")
+else:
+    logger.info(f"입력한 상의 '{shirt_name}'은(는) shirts 엑셀 파일의 title 열에 존재하지 않습니다.")
