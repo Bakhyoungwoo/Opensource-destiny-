@@ -92,3 +92,17 @@
 					<string>색 조합 추천</string>
 				</property>
 			</widget>
+			<widget class="QLabel" name="label_4">
+				<property name="geometry">
+					<rect>
+						<x>330</x>
+						<y>60</y>
+						<width>111</width>
+						<height>91</height>
+					</rect>
+				</property>
+				<property name="text">
+					<string>의류 추천 프로그램</string>
+				</property>
+			</widget>
+		</widget>
