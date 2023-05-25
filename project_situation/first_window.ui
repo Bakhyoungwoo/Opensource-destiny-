@@ -66,3 +66,16 @@
 					<string>click</string>
 				</property>
 			</widget>
+			<widget class="QLabel" name="label_2">
+				<property name="geometry">
+					<rect>
+						<x>320</x>
+						<y>280</y>
+						<width>111</width>
+						<height>20</height>
+					</rect>
+				</property>
+				<property name="text">
+					<string>가격 비교 및 추천</string>
+				</property>
+			</widget>
