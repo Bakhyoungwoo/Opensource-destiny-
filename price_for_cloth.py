@@ -29,8 +29,8 @@ else:
     min_price = min(prices)
     print(f"{cloth_name}의 가격은 {prices}원이며, 평균 가격은 {average_price:,}원, 가장 싼 가격은 {min_price:,}원 입니다.") #가독성을 위해 가격 출력 시 : ,를 사용하여 천 단위로 쉼표를 출력
 
-     # 평균 가격의 1% 범위 계산: 가격 오차 범위는 price_range 변수에 저장
-    price_range = average_price * 0.01
+     # 평균 가격의 오차 범위 0.1% price_range 변수에 저장
+    price_range = average_price * 0.1
     
      # 추천할 옷의 이름을 저장할 리스트 생성 
     recommend_clothes_similar_price = []
@@ -38,7 +38,9 @@ else:
         price_str = row['price']
         price_num = int(price_str.replace('원', '').replace(',', ''))
     if abs(price_num - average_price) <= price_range and row['title'].lower() != cloth_name_lower:
-            recommend_clothes_similar_price.append(row['title'])
+           # 불필요한 정보인 [무료반품]을 제거하여 추천할 옷의 이름을 저장
+        clean_title = row['title'].replace('[무료반품]', '').strip()
+        recommend_clothes_similar_price.append(clean_title)
     
     # 추천할 옷이 있다면 출력
     if len(recommend_clothes_similar_price) > 0:
@@ -53,6 +55,9 @@ else:
         same_color_clothes = df.loc[(df['title'].str.lower() != cloth_name_lower) & (df['color'].str.lower().isin(cloth_colors))]  # 색깔이 같은 옷 추출
 
         recommend_clothes_same_color = same_color_clothes['title'].tolist()
+
+         # 불필요한 정보를 제거하여 추천할 옷의 이름을 저장
+        recommend_clothes_same_color = [title.replace('[무료반품]', '').strip() for title in recommend_clothes_same_color]
 
     # 추천할 옷이 있다면 출력
         if len(recommend_clothes_same_color) > 0:
