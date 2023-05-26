@@ -97,32 +97,42 @@
 		   </rect>
 	   </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>350</y>
-      <width>112</width>
-      <height>34</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
+   <widget class="QLineEdit" name="lineEdit_color">
+	   <property name="geometry">
+		   <rect>
+			   <x>400</x>
+			   <y>360</y>
+			   <width>113</width>
+			   <height>25</height>
+		   </rect>
+	   </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
+   <widget class="QPushButton" name="pushButton">
+	   <property name="geometry">
+		   <rect>
+			   <x>610</x>
+			   <y>310</y>
+			   <width>112</width>
+			   <height>34</height>
+		   </rect>
+	   </property>
+	   <property name="text">
+		   <string>PushButton</string>
+	   </property>
+   </widget>
+</widget>
+<widget class="QMenuBar" name="menubar">
    <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1025</width>
-     <height>31</height>
-    </rect>
+	   <rect>
+		   <x>0</x>
+		   <y>0</y>
+		   <width>1025</width>
+		   <height>21</height>
+	   </rect>
    </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
- </widget>
- <resources/>
- <connections/>
+</widget>
+<widget class="QStatusBar" name="statusbar"/>
+</widget>
+<resources/>
+<connections/>
 </ui>
