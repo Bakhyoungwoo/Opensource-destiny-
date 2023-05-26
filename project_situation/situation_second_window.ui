@@ -31,19 +31,27 @@
 			   <bold>true</bold>
 		   </font>
 	   </property>
-    <property name="text">
-     <string>성별</string>
-    </property>
+	   <property name="text">
+		   <string>성별</string>
+	   </property>
    </widget>
    <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>160</y>
-      <width>121</width>
-      <height>18</height>
-     </rect>
-    </property>
+	   <property name="geometry">
+		   <rect>
+			   <x>230</x>
+			   <y>310</y>
+			   <width>121</width>
+			   <height>18</height>
+		   </rect>
+	   </property>
+	   <property name="font">
+		   <font>
+			   <family>맑은 고딕</family>
+			   <pointsize>14</pointsize>
+			   <weight>75</weight>
+			   <bold>true</bold>
+		   </font>
+	   </property>
     <property name="text">
      <string>어떤 옷 추천?</string>
     </property>
