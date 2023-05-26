@@ -18,10 +18,16 @@
 				<property name="geometry">
 					<rect>
 						<x>80</x>
-						<y>280</y>
-						<width>91</width>
-						<height>18</height>
+						<y>300</y>
+						<width>151</width>
+						<height>41</height>
 					</rect>
+				</property>
+				<property name="font">
+					<font>
+						<family>Agency FB</family>
+						<pointsize>16</pointsize>
+					</font>
 				</property>
 				<property name="text">
 					<string>상황 맞춤 코디</string>
@@ -30,8 +36,8 @@
 			<widget class="QPushButton" name="pushButton_situation">
 				<property name="geometry">
 					<rect>
-						<x>60</x>
-						<y>300</y>
+						<x>80</x>
+						<y>340</y>
 						<width>141</width>
 						<height>71</height>
 					</rect>
@@ -43,8 +49,8 @@
 			<widget class="QPushButton" name="pushButton_price">
 				<property name="geometry">
 					<rect>
-						<x>310</x>
-						<y>300</y>
+						<x>330</x>
+						<y>340</y>
 						<width>141</width>
 						<height>71</height>
 					</rect>
@@ -56,8 +62,8 @@
 			<widget class="QPushButton" name="pushButton_color">
 				<property name="geometry">
 					<rect>
-						<x>550</x>
-						<y>300</y>
+						<x>570</x>
+						<y>340</y>
 						<width>141</width>
 						<height>71</height>
 					</rect>
@@ -70,10 +76,16 @@
 				<property name="geometry">
 					<rect>
 						<x>320</x>
-						<y>280</y>
-						<width>111</width>
-						<height>20</height>
+						<y>310</y>
+						<width>161</width>
+						<height>31</height>
 					</rect>
+				</property>
+				<property name="font">
+					<font>
+						<family>Agency FB</family>
+						<pointsize>16</pointsize>
+					</font>
 				</property>
 				<property name="text">
 					<string>가격 비교 및 추천</string>
@@ -83,10 +95,16 @@
 				<property name="geometry">
 					<rect>
 						<x>580</x>
-						<y>280</y>
-						<width>81</width>
-						<height>20</height>
+						<y>310</y>
+						<width>121</width>
+						<height>31</height>
 					</rect>
+				</property>
+				<property name="font">
+					<font>
+						<family>Agency FB</family>
+						<pointsize>16</pointsize>
+					</font>
 				</property>
 				<property name="text">
 					<string>색 조합 추천</string>
@@ -95,11 +113,17 @@
 			<widget class="QLabel" name="label_4">
 				<property name="geometry">
 					<rect>
-						<x>330</x>
-						<y>60</y>
-						<width>111</width>
+						<x>300</x>
+						<y>80</y>
+						<width>241</width>
 						<height>91</height>
 					</rect>
+				</property>
+				<property name="font">
+					<font>
+						<family>맑은 고딕</family>
+						<pointsize>20</pointsize>
+					</font>
 				</property>
 				<property name="text">
 					<string>의류 추천 프로그램</string>
