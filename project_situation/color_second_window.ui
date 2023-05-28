@@ -67,4 +67,13 @@
      <string>상의 색상 및 정보 없음</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_result">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>450</y>
+      <width>451</width>
+      <height>111</height>
+     </rect>
+    </property>
   </ui>
