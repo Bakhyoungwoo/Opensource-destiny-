@@ -172,4 +172,13 @@
      <string>하의 이름 입력</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_result">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>420</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
   </ui>
