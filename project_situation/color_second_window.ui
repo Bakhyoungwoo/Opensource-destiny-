@@ -10,4 +10,7 @@
     <height>753</height>
    </rect>
   </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
   </ui>
