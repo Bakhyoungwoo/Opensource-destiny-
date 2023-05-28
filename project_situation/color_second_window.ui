@@ -44,4 +44,8 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
   </ui>
