@@ -118,4 +118,14 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>굴림</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>하의 색상 및 정보 없음</string>
+    </property>
+   </widget>
   </ui>
