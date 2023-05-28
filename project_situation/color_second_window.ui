@@ -109,4 +109,13 @@
      </rect>
     </property>
    </widget>
+   <widget class="QLabel" name="label_bottom_color">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>370</y>
+      <width>421</width>
+      <height>41</height>
+     </rect>
+    </property>
   </ui>
