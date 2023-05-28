@@ -201,4 +201,8 @@
     </rect>
    </property>
   </widget>
-  </ui>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
