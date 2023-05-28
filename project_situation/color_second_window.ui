@@ -86,4 +86,13 @@
      <string>평가 : </string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_color_combinate">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>90</y>
+      <width>401</width>
+      <height>381</height>
+     </rect>
+    </property>
   </ui>
