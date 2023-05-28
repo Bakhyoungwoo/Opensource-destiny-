@@ -35,4 +35,13 @@
      <string>상의 이름 입력</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_top">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>140</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
   </ui>
