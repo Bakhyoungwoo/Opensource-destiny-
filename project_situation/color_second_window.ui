@@ -48,4 +48,23 @@
      <string>PushButton</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_top_color">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>200</y>
+      <width>401</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>굴림</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>상의 색상 및 정보 없음</string>
+    </property>
+   </widget>
   </ui>
