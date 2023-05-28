@@ -181,4 +181,14 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>굴림</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+  </widget>
   </ui>
