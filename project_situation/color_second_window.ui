@@ -168,4 +168,8 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="text">
+     <string>하의 이름 입력</string>
+    </property>
+   </widget>
   </ui>
