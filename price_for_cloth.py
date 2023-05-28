@@ -1,4 +1,5 @@
 import pandas as pd
+from difflib import SequenceMatcher
 
 # 사용자로부터 옷 이름을 입력받음
 cloth_name = input("옷 이름을 입력하세요: ")
@@ -9,6 +10,12 @@ df = pd.read_excel('example.xlsx')
 # 영어 이름의 경우 대소문자 구분 없이 옷 이름을 입력할 수 있도록 입력한 이름을 소문자로 변환
 cloth_name_lower = cloth_name.lower()
 
+def find_similar_cloth_name(name, names_list):
+    max_ratio = 0
+    similar_name = ''
+    for n in names_list:
+        
+    return similar_name
 # title열에서 옷 이름이 일치하는 행을 찾음
 matching_rows = df.loc[df['title'].str.lower() == cloth_name_lower]
 
