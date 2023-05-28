@@ -128,4 +128,13 @@
      <string>하의 색상 및 정보 없음</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_bottom">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>300</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
   </ui>
