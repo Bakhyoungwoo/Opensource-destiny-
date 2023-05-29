@@ -36,3 +36,7 @@ print(title) #콘솔창에 타이틀 출력
 print(price) #콘솔창에 가격 출력
 print(image_url)
 
+data = {'title' : title_list, 'price' : price_list} #엑셀파일에 하의 타이틀 및 가격 저장
+df = pd.DataFrame(data)
+df.to_excel("shirts.xlsx")
+
