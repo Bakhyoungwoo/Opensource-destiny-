@@ -21,3 +21,6 @@ for item in items:
 
     urllib.request.urlretrieve(image_url, 'codi/{}.png'.format(title)) #url이용해서 이미지를 다운받음(이미지 저장이름은 title)
 
+data = {'title' : title_list}#타이틀 엑셀파일에 저장
+df = pd.DataFrame(data)
+df.to_excel("가을.xlsx")
