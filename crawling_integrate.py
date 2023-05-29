@@ -18,3 +18,13 @@ dfs = []
 for file in all_files:
     df = pd.read_excel(file)  # 엑셀 파일 읽기
     dfs.append(df)
+    
+    # 병합된 데이터프레임 생성
+merge_df = pd.concat(dfs, ignore_index=True)
+
+# 병합된 데이터프레임 출력
+print(merge_df)
+
+# 병합된 데이터프레임을 엑셀 파일로 저장
+output_file = os.path.join(directory_path, 'codi_data.xlsx')
+merge_df.to_excel(output_file, index=False)
