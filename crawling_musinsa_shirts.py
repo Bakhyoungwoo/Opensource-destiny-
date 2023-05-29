@@ -21,10 +21,18 @@ for i, item in enumerate(items):
     if price_tag.find('del'):#del tag안의 할인 전 가격 삭제
         del_price = price_tag.find('del').get_text(strip=True)
         price = price.replace(del_price, '')
+    image_url = 'https:' + item.find('img', class_='lazyload')['data-original']
     title_list.append(title)
     price_list.append(price)
+    
+    if '/' in title:
+        title = title.replace('/','-')
+        
+        
+    urllib.request.urlretrieve(image_url, 'cloth/{}.png'.format(title))#cloth파일 안에 이미지 다운
     
     
 print(title) #콘솔창에 타이틀 출력
 print(price) #콘솔창에 가격 출력
+print(image_url)
 
