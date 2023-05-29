@@ -10,3 +10,11 @@ file_pattern = '*.xlsx'
 
 # 모든 엑셀 파일 가져오기
 all_files = glob.glob(os.path.join(directory_path, file_pattern))
+
+# 엑셀 파일들을 담을 빈 DataFrame 생성
+dfs = []
+
+# 모든 엑셀 파일을 순회하면서 병합
+for file in all_files:
+    df = pd.read_excel(file)  # 엑셀 파일 읽기
+    dfs.append(df)
