@@ -11,3 +11,10 @@ url = 'https://www.musinsa.com/search/musinsa/coordi?q=%EA%B2%A8%EC%9A%B8%EC%BD%
 res = requests.get(url) #홈페이지를 읽어옴
 soup = BeautifulSoup(res.text, 'html.parser')  # 갖고온 홈페이지를 분석할 수 있게 함
 
+title_list = [] #타이틀을 저장하는 배열
+items = soup.find('ul', class_='style-list').find_all('li', class_='style-list-item')
+for item in items:
+    title = item.find('strong', class_='style-list-information__title').get_text(strip=True) #타이틀 찾아주기
+    title_list.append(title)#title 배열의 끝에 타이틀 추가
+    
+    print(title)
