@@ -27,4 +27,4 @@ print(image_url)
 
 data = {'title' : title_list}
 df = pd.DataFrame(data)
-df.to_excel("winter.xlsx") 
+df.to_excel("date.xlsx") 

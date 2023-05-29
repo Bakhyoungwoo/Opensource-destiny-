@@ -27,4 +27,4 @@ for item in items:
 
 data = {'title' : title_list}
 df = pd.DataFrame(data)
-df.to_excel("파일명.xlsx")
+df.to_excel("summer.xlsx")
