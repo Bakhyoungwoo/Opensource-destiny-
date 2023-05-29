@@ -18,6 +18,9 @@ for i, item in enumerate(items):
     title = item.find('div', class_='article_info').find('p', class_='list_info').find('a').get_text(strip=True)#상의 타이틀
     price_tag = item.find('div', class_='article_info').find('p', class_='price')#하의 가격
     price = price_tag.get_text(strip=True) #가격 추출
+    if price_tag.find('del'):#del tag안의 할인 전 가격 삭제
+        del_price = price_tag.find('del').get_text(strip=True)
+        price = price.replace(del_price, '')
     title_list.append(title)
     price_list.append(price)
     
