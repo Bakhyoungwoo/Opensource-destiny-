@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import urllib.request
 import requests
 import time
-
+import pandas as pd
 
 #갖고오고 싶은 무신사 코디 url
 url = 'https://www.musinsa.com/search/musinsa/coordi?q=%ED%95%98%EA%B0%9D%EB%A3%A9&list_kind=small&sortCode=term_date&sub_sort=&page=1&display_cnt=0&saleGoods=&includeSoldOut=&setupGoods=&popular=&category1DepthCode=&category2DepthCodes=&category3DepthCodes=&selectedFilters=&category1DepthName=&category2DepthName=&brandIds=&price=&colorCodes=&contentType=&styleTypes=&includeKeywords=&excludeKeywords=&originalYn=N&tags=&campaignId=&serviceType=&eventType=&type=&season=&measure=&openFilterLayout=N&selectedOrderMeasure=&shoeSizeOption=&groupSale=&d_cat_cd=&attribute=&plusDeliveryYn='
@@ -23,4 +23,7 @@ for item in items:
     title_list.append(title)#title 배열의 끝에 타이틀 추가
 
     urllib.request.urlretrieve(image_url, 'codi/{}.png'.format(title)) #url이용해서 이미지를 다운받음(이미지 저장이름은 title)
-print(image_url)
+
+data = {'title' : title_list}
+df = pd.DataFrame(data)
+df.to_excel("guest.xlsx") 
