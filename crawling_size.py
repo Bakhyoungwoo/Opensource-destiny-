@@ -1,6 +1,7 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import urllib.request
+import pandas as pd
 import time
 import re
 
@@ -23,5 +24,7 @@ for item in items:
     print(body)
     print(size)
     
-
+data = {'body': body_list, 'size': size_list}
+df = pd.DataFrame(data)
+df.to_excel("size.xlsx")
 
