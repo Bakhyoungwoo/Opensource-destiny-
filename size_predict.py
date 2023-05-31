@@ -17,6 +17,20 @@ weight = float(input("몸무게를 입력하세요 (kg): "))
 
 # 입력 데이터로 예측하기
 size = model.predict([[height, weight]])
+if 85 <= size < 90:
+    output_size = 'xs'
+elif 90 <= size <95:
+    output_size = "s"
+elif  95 <= size < 100:
+    output_size = "M"
+elif 100 <= size < 105:
+    output_size = "L"
+elif 105 <= size < 110:
+    output_size = "XL"
+elif 110 <= size < 115:
+    output_size = "XXL"
+else:
+    output_size = "사이즈를 결정할 수 없습니다."
 
 # 결과 출력
-print(f"예상 옷 사이즈는 {size}입니다.")
+print(f"예상 옷 사이즈는 {output_size}입니다.")
