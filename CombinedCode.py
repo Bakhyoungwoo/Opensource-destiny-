@@ -3,16 +3,11 @@ import pandas as pd
 from difflib import get_close_matches
 import random
 
-try:
-    # 엑셀 파일 로드
-    df = pd.read_excel('codi_data.xlsx')
-except FileNotFoundError:
-    print("열고자 하는 엑셀 파일이 존재하지 않습니다.")
-    exit()
+df = pd.read_excel('codi_data.xlsx')
 
 # 사용자로부터 정보 입력 받기
 
-which_gender = input("어떤 성별의 옷을 추천받고 싶으세요?(남성/여성 대답): ")
+which_gender = input("어떤 성별의 옷을 추천받고 싶으세요?(남성/여성/공용 대답): ")
 current_situation = input("어떤 상황에서 입을 옷을 추천받고 싶으세요?: ")
 current_color = input("어떤 색깔의 옷을 추천받고 싶으세요?: ")
 
