@@ -13,3 +13,8 @@ class Color_FirstWindow(QMainWindow, form_class1):
         super().__init__(parent=None)
         self.setupUi(self)
         self.pushButton_color.clicked.connect(self.button_click_color)
+    # 버튼이 클릭될 때 새로운 창 생성
+    def button_click_color(self):
+        self.close()
+        self.color_second_window = Color_SecondWindow(self)
+        self.color_second_window.show()
