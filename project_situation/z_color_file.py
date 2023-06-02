@@ -23,3 +23,7 @@ class Color_FirstWindow(QMainWindow, form_class1):
 class Color_SecondWindow(QMainWindow, form_class6):
     def __init__(self, parent=None):
         super(Color_SecondWindow, self).__init__(parent)        
+        self.setupUi(self)
+        self.connect_signal_slots_top()
+        self.connect_signal_slots_bottom()
+        self.btn_result()
