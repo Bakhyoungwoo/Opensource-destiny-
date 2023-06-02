@@ -7,6 +7,7 @@ import pandas as pd
 from PyQt5 import uic
 
 form_class1 = uic.loadUiType("first_window.ui")[0]
+form_class6 = uic.loadUiType("color_second_window.ui")[0]
 
 class Color_FirstWindow(QMainWindow, form_class1):
     def __init__(self):
@@ -18,3 +19,7 @@ class Color_FirstWindow(QMainWindow, form_class1):
         self.close()
         self.color_second_window = Color_SecondWindow(self)
         self.color_second_window.show()
+        
+class Color_SecondWindow(QMainWindow, form_class6):
+    def __init__(self, parent=None):
+        super(Color_SecondWindow, self).__init__(parent)        
