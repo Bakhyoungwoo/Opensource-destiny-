@@ -116,4 +116,24 @@ class Color_SecondWindow(QMainWindow, form_class6):
             shirt_color = self.shirt_color[0] if self.shirt_color else None
             pants_color = self.pants_color[0] if self.pants_color else None
         
-                      
+            if shirt_color in best_color_combinations.get(pants_color, []):
+                self.label_result.setText(f"상의와 하의의 색상 조합이 잘 어울립니다! ({shirt_color}, {pants_color})")
+            elif shirt_color in good_color_combinations.get(pants_color, []):
+                self.label_result.setText(f"상의와 하의의 색상 조합이 어느 정도 어울립니다! ({shirt_color}, {pants_color})")
+            elif shirt_color in not_bad_color_combinations.get(pants_color, []):
+                self.label_result.setText(
+                    f"상의와 하의의 색상 조합이 나쁘진 않지만, 더 좋은 조합을 찾아보는 것은 어떨까요? ({shirt_color}, {pants_color})")
+            elif shirt_color in worst_color_combinations.get(pants_color, []):
+                self.label_result.setText(
+                    f"어우! 이건 좀 아닌 것 같습니다! 새로운 시도를 해보는 게 아니라면, 다른 색깔의 조합을 고려해 보세요. ({shirt_color}, {pants_color})")
+            else:
+                self.label_result.setText(f"저희 색 조합 데이터에는 없는 조합입니다.\n 흐음... 당신의 조합이 괜찮기를 바랍니다!")
+
+
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = Color_FirstWindow()
+    window.show()
+    app.exec_()                      
