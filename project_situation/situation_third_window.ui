@@ -116,46 +116,65 @@
 						<string>아니오</string>
 					</property>
 				</widget>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>260</y>
-      <width>112</width>
-      <height>34</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label2">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>360</y>
-      <width>361</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1077</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
- </widget>
- <resources/>
- <connections/>
+			</widget>
+			<widget class="QPushButton" name="pushButton">
+				<property name="geometry">
+					<rect>
+						<x>230</x>
+						<y>280</y>
+						<width>112</width>
+						<height>34</height>
+					</rect>
+				</property>
+				<property name="text">
+					<string>PushButton</string>
+				</property>
+			</widget>
+			<widget class="QLabel" name="label2">
+				<property name="geometry">
+					<rect>
+						<x>50</x>
+						<y>360</y>
+						<width>361</width>
+						<height>18</height>
+					</rect>
+				</property>
+				<property name="font">
+					<font>
+						<family>굴림</family>
+						<pointsize>12</pointsize>
+					</font>
+				</property>
+				<property name="text">
+					<string/>
+				</property>
+			</widget>
+			<widget class="QLabel" name="label_codi_reference">
+				<property name="geometry">
+					<rect>
+						<x>790</x>
+						<y>140</y>
+						<width>511</width>
+						<height>581</height>
+					</rect>
+				</property>
+				<property name="text">
+					<string/>
+				</property>
+			</widget>
+		</widget>
+		<widget class="QMenuBar" name="menubar">
+			<property name="geometry">
+				<rect>
+					<x>0</x>
+					<y>0</y>
+					<width>1442</width>
+					<height>21</height>
+				</rect>
+			</property>
+		</widget>
+		<widget class="QStatusBar" name="statusbar"/>
+	</widget>
+	<resources/>
+	<connections/>
 </ui>
