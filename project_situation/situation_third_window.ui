@@ -36,33 +36,29 @@
 					<set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
 				</property>
 			</widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>180</y>
-      <width>371</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>추천된 코디가 마음에 드시나요?</string>
-    </property>
-   </widget>
-   <widget class="QGroupBox" name="groupBox">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>220</y>
-      <width>191</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string/>
-    </property>
-    <widget class="QRadioButton" name="radioButton_yes">
-     <property name="geometry">
+			<widget class="QLabel" name="label_2">
+				<property name="geometry">
+					<rect>
+						<x>40</x>
+						<y>137</y>
+						<width>491</width>
+						<height>61</height>
+					</rect>
+				</property>
+				<property name="font">
+					<font>
+						<family>맑은 고딕</family>
+						<pointsize>20</pointsize>
+						<weight>50</weight>
+						<bold>false</bold>
+					</font>
+				</property>
+				<property name="text">
+					<string>추천된 코디가 마음에 드시나요?</string>
+				</property>
+			</widget>
+			<widget class="QGroupBox" name="groupBox">
+				<property name="geometry">
       <rect>
        <x>10</x>
        <y>20</y>
