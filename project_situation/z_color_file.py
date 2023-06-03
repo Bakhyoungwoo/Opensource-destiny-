@@ -27,3 +27,8 @@ class Color_SecondWindow(QMainWindow, form_class6):
         self.connect_signal_slots_top()
         self.connect_signal_slots_bottom()
         self.btn_result()
+        self.shirts_data = pd.read_excel('shirts.xlsx')
+        self.pants_data = pd.read_excel('pants.xlsx')
+        self.pixmap = QPixmap('color_combinate.PNG')
+        self.label_color_combinate.setPixmap(QPixmap(self.pixmap).scaled(self.label_color_combinate.width(), self.label_color_combinate.height(),Qt.IgnoreAspectRatio))
+        self.label_color_combinate.resize(400, 390)
