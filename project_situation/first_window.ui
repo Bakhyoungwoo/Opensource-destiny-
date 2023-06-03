@@ -136,4 +136,32 @@
       <y>520</y>
       <width>111</width>
       <height>41</height>
-     </rect>				
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Agency FB</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>사이즈 추천</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_size">
+    <property name="geometry">
+     <rect>
+      <x>1090</x>
+      <y>560</y>
+      <width>191</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>click</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>				
