@@ -59,33 +59,63 @@
 			</widget>
 			<widget class="QGroupBox" name="groupBox">
 				<property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>130</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>예</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radioButton_no">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>70</y>
-       <width>130</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>아니오</string>
-     </property>
-    </widget>
+					<rect>
+						<x>40</x>
+						<y>220</y>
+						<width>191</width>
+						<height>111</height>
+					</rect>
+				</property>
+				<property name="font">
+					<font>
+						<family>굴림</family>
+						<pointsize>14</pointsize>
+					</font>
+				</property>
+				<property name="title">
+					<string/>
+				</property>
+				<widget class="QRadioButton" name="radioButton_yes">
+					<property name="geometry">
+						<rect>
+							<x>10</x>
+							<y>20</y>
+							<width>130</width>
+							<height>22</height>
+						</rect>
+					</property>
+					<property name="font">
+						<font>
+							<family>굴림</family>
+							<pointsize>14</pointsize>
+						</font>
+					</property>
+					<property name="text">
+						<string>예</string>
+					</property>
+					<property name="checked">
+						<bool>true</bool>
+					</property>
+				</widget>
+				<widget class="QRadioButton" name="radioButton_no">
+					<property name="geometry">
+						<rect>
+							<x>10</x>
+							<y>70</y>
+							<width>130</width>
+							<height>22</height>
+						</rect>
+					</property>
+					<property name="font">
+						<font>
+							<family>굴림</family>
+							<pointsize>14</pointsize>
+						</font>
+					</property>
+					<property name="text">
+						<string>아니오</string>
+					</property>
+				</widget>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
