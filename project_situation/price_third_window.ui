@@ -32,28 +32,28 @@
      </font>
     </property>
 				<property name="text">
-					<string>옷 이름 :</string>
-				</property>
-			</widget>
-			<widget class="QLineEdit" name="lineEdit_third_clothname">
-				<property name="geometry">
-					<rect>
-						<x>130</x>
-						<y>110</y>
-						<width>113</width>
-						<height>25</height>
-					</rect>
-				</property>
-			</widget>
-			<widget class="QPushButton" name="pushButton">
-				<property name="geometry">
-					<rect>
-						<x>260</x>
-						<y>100</y>
-						<width>112</width>
-						<height>34</height>
-					</rect>
-				</property>
+     <string>옷 이름 :</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_third_clothname">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>50</y>
+      <width>113</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>43</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
 				<property name="text">
 					<string>PushButton</string>
 				</property>
