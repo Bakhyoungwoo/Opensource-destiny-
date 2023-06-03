@@ -26,9 +26,9 @@
 				<property name="font">
 					<font>
 						<family>맑은 고딕</family>
-						<pointsize>14</pointsize>
-						<weight>75</weight>
-						<bold>true</bold>
+						<pointsize>20</pointsize>
+						<weight>50</weight>
+						<bold>false</bold>
 					</font>
 				</property>
 				<property name="text">
@@ -38,11 +38,17 @@
 			<widget class="QLineEdit" name="lineEdit_clothname">
 				<property name="geometry">
 					<rect>
-						<x>400</x>
-						<y>290</y>
-						<width>113</width>
-						<height>25</height>
+						<x>560</x>
+						<y>440</y>
+						<width>261</width>
+						<height>61</height>
 					</rect>
+				</property>
+				<property name="font">
+					<font>
+						<family>Agency FB</family>
+						<pointsize>16</pointsize>
+					</font>
 				</property>
 			</widget>
 			<widget class="QPushButton" name="pushButton">
