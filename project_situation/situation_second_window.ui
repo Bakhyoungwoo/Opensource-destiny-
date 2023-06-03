@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>1025</width>
-	   <height>727</height>
-   </rect>
-</property>
-<property name="windowTitle">
-   <string>MainWindow</string>
-</property>
-<widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
-	   <property name="geometry">
-		   <rect>
-			   <x>230</x>
-			   <y>260</y>
-			   <width>121</width>
-			   <height>18</height>
-		   </rect>
-	   </property>
-	   <property name="font">
-		   <font>
-			   <family>맑은 고딕</family>
-			   <pointsize>14</pointsize>
-			   <weight>75</weight>
-			   <bold>true</bold>
-		   </font>
-	   </property>
+	<class>MainWindow</class>
+	<widget class="QMainWindow" name="MainWindow">
+		<property name="geometry">
+			<rect>
+				<x>0</x>
+				<y>0</y>
+				<width>1444</width>
+				<height>971</height>
+			</rect>
+		</property>
+		<property name="windowTitle">
+			<string>MainWindow</string>
+		</property>
+		<widget class="QWidget" name="centralwidget">
+			<widget class="QLabel" name="label">
+				<property name="geometry">
+					<rect>
+						<x>320</x>
+						<y>330</y>
+						<width>121</width>
+						<height>41</height>
+					</rect>
+				</property>
+				<property name="font">
+					<font>
+						<family>함초롬돋움</family>
+						<pointsize>20</pointsize>
+						<weight>75</weight>
+						<bold>true</bold>
+					</font>
+				</property>
 	   <property name="text">
 		   <string>성별</string>
 	   </property>
