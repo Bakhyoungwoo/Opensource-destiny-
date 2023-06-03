@@ -76,63 +76,108 @@
 				<property name="text">
 					<string>색깔</string>
 				</property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_sex">
-	   <property name="geometry">
-		   <rect>
-			   <x>400</x>
-			   <y>250</y>
-			   <width>113</width>
-			   <height>25</height>
-		   </rect>
-	   </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_recommend">
-	   <property name="geometry">
-		   <rect>
-			   <x>400</x>
-			   <y>300</y>
-			   <width>113</width>
-			   <height>25</height>
-		   </rect>
-	   </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_color">
-	   <property name="geometry">
-		   <rect>
-			   <x>400</x>
-			   <y>360</y>
-			   <width>113</width>
-			   <height>25</height>
-		   </rect>
-	   </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-	   <property name="geometry">
-		   <rect>
-			   <x>610</x>
-			   <y>310</y>
-			   <width>112</width>
-			   <height>34</height>
-		   </rect>
-	   </property>
-	   <property name="text">
-		   <string>PushButton</string>
-	   </property>
-   </widget>
-</widget>
-<widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-	   <rect>
-		   <x>0</x>
-		   <y>0</y>
-		   <width>1025</width>
-		   <height>21</height>
-	   </rect>
-   </property>
-</widget>
-<widget class="QStatusBar" name="statusbar"/>
-</widget>
-<resources/>
-<connections/>
+			</widget>
+			<widget class="QLineEdit" name="lineEdit_sex">
+				<property name="geometry">
+					<rect>
+						<x>510</x>
+						<y>330</y>
+						<width>113</width>
+						<height>51</height>
+					</rect>
+				</property>
+				<property name="font">
+					<font>
+						<family>함초롬돋움</family>
+						<pointsize>20</pointsize>
+						<weight>75</weight>
+						<bold>true</bold>
+					</font>
+				</property>
+			</widget>
+			<widget class="QLineEdit" name="lineEdit_recommend">
+				<property name="geometry">
+					<rect>
+						<x>510</x>
+						<y>440</y>
+						<width>113</width>
+						<height>51</height>
+					</rect>
+				</property>
+				<property name="font">
+					<font>
+						<family>함초롬돋움</family>
+						<pointsize>20</pointsize>
+						<weight>75</weight>
+						<bold>true</bold>
+					</font>
+				</property>
+			</widget>
+			<widget class="QLineEdit" name="lineEdit_color">
+				<property name="geometry">
+					<rect>
+						<x>510</x>
+						<y>550</y>
+						<width>113</width>
+						<height>51</height>
+					</rect>
+				</property>
+				<property name="font">
+					<font>
+						<family>함초롬돋움</family>
+						<pointsize>20</pointsize>
+						<weight>75</weight>
+						<bold>true</bold>
+					</font>
+				</property>
+			</widget>
+			<widget class="QPushButton" name="pushButton">
+				<property name="geometry">
+					<rect>
+						<x>870</x>
+						<y>390</y>
+						<width>171</width>
+						<height>131</height>
+					</rect>
+				</property>
+				<property name="text">
+					<string>PushButton</string>
+				</property>
+			</widget>
+			<widget class="QLabel" name="label_4">
+				<property name="geometry">
+					<rect>
+						<x>540</x>
+						<y>100</y>
+						<width>291</width>
+						<height>81</height>
+					</rect>
+				</property>
+				<property name="font">
+					<font>
+						<family>맑은 고딕</family>
+						<pointsize>24</pointsize>
+						<weight>75</weight>
+						<bold>true</bold>
+					</font>
+				</property>
+				<property name="text">
+					<string>빈칸을 채워주세요</string>
+				</property>
+			</widget>
+		</widget>
+		<widget class="QMenuBar" name="menubar">
+			<property name="geometry">
+				<rect>
+					<x>0</x>
+					<y>0</y>
+					<width>1444</width>
+					<height>21</height>
+				</rect>
+			</property>
+		</widget>
+		<widget class="QStatusBar" name="statusbar"/>
+	</widget>
+	<resources/>
+	<connections/>
 </ui>
