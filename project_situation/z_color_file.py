@@ -68,4 +68,47 @@ class Color_SecondWindow(QMainWindow, form_class6):
 
         self.label_color_combinate.setPixmap(pixmap)
         self.label_color_combinate.resize(pixmap.width(), pixmap.height())                  
+        # Color combination dictionaries with different levels of compatibility
+        best_color_combinations = {
+            '빨강': ['진청', '검정'],
+            '핑크': ['흰색'],
+            '노랑': ['검정'],
+            '초록': ['진청', '검정'],
+            '파랑': ['흰색'],
+            '남색': ['흰색'],
+            '흰색': ['연청', '진청'],
+            '검정': ['연청', '베이지']
+        }
+        good_color_combinations = {
+            '빨강': ['회색'],
+            '핑크': ['회색', '연청', '검정'],
+            '노랑': ['회색', '진청'],
+            '초록': ['회색', '베이지'],
+            '파랑': ['회색', '베이지'],
+            '남색': ['회색', '검정', '베이지'],
+            '흰색': ['회색', '검정'],
+            '검정': ['회색', '진청', '검정']
+        }
+        not_bad_color_combinations = {
+            '빨강': ['흰색'],
+            '핑크': ['베이지'],
+            '노랑': [],
+            '초록': ['연청', '흰색'],
+            '파랑': [],
+            '남색': ['연청'],
+            '흰색': ['베이지'],
+            '검정': ['흰색']
+        }
+        worst_color_combinations = {
+            '빨강': ['연청', '베이지'],
+            '핑크': [],
+            '노랑': ['연청', '베이지', '흰색'],
+            '초록': [],
+            '파랑': ['연청', '진청', '베이지'],
+            '남색': [],
+            '흰색': ['흰색'],
+            '검정': []
+        }
+        
+        
                       
