@@ -17,4 +17,23 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
+      <x>110</x>
+      <y>520</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Agency FB</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>상황 맞춤 코디 추천</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_situation">
+    <property name="geometry">
+     <rect>
 						
