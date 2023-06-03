@@ -44,4 +44,17 @@ class Color_SecondWindow(QMainWindow, form_class6):
         if self.shirt_color:
             self.label_top_color.setText(f"{shirt_name}의 \n색상정보 : {self.shirt_color[0]}")
         else:
-            self.label_top_color.setText(f"{shirt_name}에 대한 정보를 찾을 수 없습니다.")        
+            self.label_top_color.setText(f"{shirt_name}에 대한 정보를 찾을 수 없습니다.")
+
+    def connect_signal_slots_bottom(self):
+        self.pushButton_bottom.clicked.connect(self.btn_bottom_color)
+
+    def btn_bottom_color(self):
+        pants_name = self.lineEdit_third_bottomname.text()
+        # 하의 예시: 유니섹스 세미 와이드 밴딩 슬랙스
+
+        self.pants_color = self.pants_data.loc[self.pants_data['title'] == pants_name, 'color'].values
+        if self.pants_color:
+            self.label_bottom_color.setText(f"{pants_name}의 \n색상정보 : {self.pants_color[0]}")
+        else:
+            self.label_bottom_color.setText(f"{pants_name}에 대한 정보를 찾을 수 없습니다.")                   
