@@ -110,5 +110,10 @@ class Color_SecondWindow(QMainWindow, form_class6):
             '검정': []
         }
         
+        if self.shirt_color == self.pants_color:
+            self.label_result.setText("상의와 하의의 색상이 일치합니다. 평범하지만 괜찮은, 무난한 조합입니다!")
+        else:
+            shirt_color = self.shirt_color[0] if self.shirt_color else None
+            pants_color = self.pants_color[0] if self.pants_color else None
         
                       
