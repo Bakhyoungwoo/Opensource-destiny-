@@ -1,147 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
-	<class>MainWindow</class>
-	<widget class="QMainWindow" name="MainWindow">
-		<property name="geometry">
-			<rect>
-				<x>0</x>
-				<y>0</y>
-				<width>891</width>
-				<height>668</height>
-			</rect>
-		</property>
-		<property name="windowTitle">
-			<string>MainWindow</string>
-		</property>
-		<widget class="QWidget" name="centralwidget">
-			<widget class="QLabel" name="label">
-				<property name="geometry">
-					<rect>
-						<x>80</x>
-						<y>300</y>
-						<width>151</width>
-						<height>41</height>
-					</rect>
-				</property>
-				<property name="font">
-					<font>
-						<family>Agency FB</family>
-						<pointsize>16</pointsize>
-					</font>
-				</property>
-				<property name="text">
-					<string>상황 맞춤 코디</string>
-				</property>
-			</widget>
-			<widget class="QPushButton" name="pushButton_situation">
-				<property name="geometry">
-					<rect>
-						<x>80</x>
-						<y>340</y>
-						<width>141</width>
-						<height>71</height>
-					</rect>
-				</property>
-				<property name="text">
-					<string>click</string>
-				</property>
-			</widget>
-			<widget class="QPushButton" name="pushButton_price">
-				<property name="geometry">
-					<rect>
-						<x>330</x>
-						<y>340</y>
-						<width>141</width>
-						<height>71</height>
-					</rect>
-				</property>
-				<property name="text">
-					<string>click</string>
-				</property>
-			</widget>
-			<widget class="QPushButton" name="pushButton_color">
-				<property name="geometry">
-					<rect>
-						<x>570</x>
-						<y>340</y>
-						<width>141</width>
-						<height>71</height>
-					</rect>
-				</property>
-				<property name="text">
-					<string>click</string>
-				</property>
-			</widget>
-			<widget class="QLabel" name="label_2">
-				<property name="geometry">
-					<rect>
-						<x>320</x>
-						<y>310</y>
-						<width>161</width>
-						<height>31</height>
-					</rect>
-				</property>
-				<property name="font">
-					<font>
-						<family>Agency FB</family>
-						<pointsize>16</pointsize>
-					</font>
-				</property>
-				<property name="text">
-					<string>가격 비교 및 추천</string>
-				</property>
-			</widget>
-			<widget class="QLabel" name="label_3">
-				<property name="geometry">
-					<rect>
-						<x>580</x>
-						<y>310</y>
-						<width>121</width>
-						<height>31</height>
-					</rect>
-				</property>
-				<property name="font">
-					<font>
-						<family>Agency FB</family>
-						<pointsize>16</pointsize>
-					</font>
-				</property>
-				<property name="text">
-					<string>색 조합 추천</string>
-				</property>
-			</widget>
-			<widget class="QLabel" name="label_4">
-				<property name="geometry">
-					<rect>
-						<x>300</x>
-						<y>80</y>
-						<width>241</width>
-						<height>91</height>
-					</rect>
-				</property>
-				<property name="font">
-					<font>
-						<family>맑은 고딕</family>
-						<pointsize>20</pointsize>
-					</font>
-				</property>
-				<property name="text">
-					<string>의류 추천 프로그램</string>
-				</property>
-			</widget>
-		</widget>
-		<widget class="QMenuBar" name="menubar">
-			<property name="geometry">
-				<rect>
-					<x>0</x>
-					<y>0</y>
-					<width>891</width>
-					<height>21</height>
-				</rect>
-			</property>
-		</widget>
-		<widget class="QStatusBar" name="statusbar"/>
-	</widget>
-	<resources/>
-	<connections/>
-</ui>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1443</width>
+    <height>972</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+						
