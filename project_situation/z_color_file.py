@@ -57,4 +57,15 @@ class Color_SecondWindow(QMainWindow, form_class6):
         if self.pants_color:
             self.label_bottom_color.setText(f"{pants_name}의 \n색상정보 : {self.pants_color[0]}")
         else:
-            self.label_bottom_color.setText(f"{pants_name}에 대한 정보를 찾을 수 없습니다.")                   
+            self.label_bottom_color.setText(f"{pants_name}에 대한 정보를 찾을 수 없습니다.")  
+ 
+    def btn_result(self):
+        self.pushButton_result.clicked.connect(self.tell_result_color)
+
+    def tell_result_color(self):
+        pixmap = QPixmap('pythonProject2/color_combinate.PNG')
+        self.label_color_combinate = QLabel(self)
+
+        self.label_color_combinate.setPixmap(pixmap)
+        self.label_color_combinate.resize(pixmap.width(), pixmap.height())                  
+                      
