@@ -32,3 +32,16 @@ class Color_SecondWindow(QMainWindow, form_class6):
         self.pixmap = QPixmap('color_combinate.PNG')
         self.label_color_combinate.setPixmap(QPixmap(self.pixmap).scaled(self.label_color_combinate.width(), self.label_color_combinate.height(),Qt.IgnoreAspectRatio))
         self.label_color_combinate.resize(400, 390)
+        
+    def connect_signal_slots_top(self):
+        self.pushButton_top.clicked.connect(self.btn_top_color)
+
+    def btn_top_color(self):
+        shirt_name = self.lineEdit_third_topname.text()
+        # 상의 예시 : 에센셜 쿨 코튼 2-PACK 티셔츠 블랙
+
+        self.shirt_color = self.shirts_data.loc[self.shirts_data['title'] == shirt_name, 'color'].values
+        if self.shirt_color:
+            self.label_top_color.setText(f"{shirt_name}의 \n색상정보 : {self.shirt_color[0]}")
+        else:
+            self.label_top_color.setText(f"{shirt_name}에 대한 정보를 찾을 수 없습니다.")        
