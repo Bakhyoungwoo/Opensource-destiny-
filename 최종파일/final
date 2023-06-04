@@ -10,6 +10,49 @@ import pandas as pd
 import random
 
 
+form_class1 = uic.loadUiType("PyQt5_ui/first_window.ui")[0]
+form_class2 = uic.loadUiType("PyQt5_ui/situation_second_window.ui")[0]
+form_class3 = uic.loadUiType("PyQt5_ui/situation_third_window.ui")[0]
+form_class4 = uic.loadUiType("PyQt5_ui/price_second_window.ui")[0]
+form_class5 = uic.loadUiType("PyQt5_ui/price_third_window.ui")[0]
+form_class6 = uic.loadUiType("PyQt5_ui/color_second_window.ui")[0]
+form_class7 = uic.loadUiType("PyQt5_ui/size_second_window.ui")[0]
+
+
+
+class total_window(QMainWindow, form_class1):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.pushButton_situation.clicked.connect(self.button_clicked_situation)
+        self.pushButton_color.clicked.connect(self.button_click_color)
+        self.pushButton_price.clicked.connect(self.button_click_price)
+        self.pushButton_size.clicked.connect(self.button_clicked_size)
+
+        # 버튼이 클릭될 때 새로운 창 생성
+    def button_click_price(self):
+        self.close()
+        self.price_second_window = Price_SecondWindow(self)
+        self.price_second_window.show()
+
+        # 버튼이 클릭될 때 새로운 창 생성
+    def button_click_color(self):
+        self.close()
+        self.color_second_window = Color_SecondWindow(self)
+        self.color_second_window.show()
+
+    # 버튼이 클릭될 때 새로운 창 생성
+    def button_clicked_situation(self):
+        self.close()
+        self.situation_second_window = Situation_SecondWindow(self)
+        self.situation_second_window.show()
+
+    def button_clicked_size(self):
+        self.close()
+        self.size_second_window = Size_SecondWindow(self)
+        self.size_second_window.show()
+
+
 class Size_SecondWindow(QMainWindow, form_class7):
     def __init__(self, parent=None):
         super(Size_SecondWindow, self).__init__(parent)
