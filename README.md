@@ -52,10 +52,3 @@ urllib3                  == 1.26.15
 원하는 메뉴를 선택한 후 그에 해당하는 정보를 입력한다
 
 ---
-
-### License
-
-PyQt is dual licensed on all supported platforms under the GNU GPL v3 and the Riverbank Commercial License. Unlike Qt, PyQt is not available under the LGPL. You can purchase the commercial version of PyQt here. 
-
-PyQt does not include a copy of Qt. You must obtain a correctly licensed copy of Qt yourself. However, binary wheels of the GPL version of PyQt6 and PyQt5 are provided and these include a copy of the corresponding LGPL version of Qt.
-
